@@ -99,7 +99,9 @@
       const [name,address]=splitNameAddress(m[1].replace(/\s*\[[^\]]*$/,'').trim());add(name,address)
     }
     // 多店攻略也常用 1.／①／1️⃣ 清單；地址可能位於下一行。
-    const lines=body.split('\n');
+    // 有些公開頁面把整篇攻略壓成一行，例如「1️⃣店名 地址 2️⃣店名 地址」。
+    // 先把帶 emoji 的序號還原成逐行清單，再沿用同一套店名／地址解析。
+    const lines=body.replace(/\s*\[#.*$/s,'').replace(/([1-9]️⃣)/gu,'\n$1').split('\n');
     for(let i=0;i<lines.length;i++){
       const match=lines[i].match(/^\s*(?:[-*]\s*)?(?:\d{1,2}[.．、)]|[①-⑳]|[1-9]️⃣)\s*(.{3,150})$/u);
       if(!match)continue;
