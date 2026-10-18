@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function member(tripId) {
+      return signedIn() && exists(/databases/$(database)/documents/trips/$(tripId)/members/$(request.auth.uid));
+    }
+    match /trips/{tripId} {
+      allow get: if member(tripId);
+      allow list: if false;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasAll(['ownerId','data','createdAt','updatedAt'])
+        && request.resource.data.ownerId == request.auth.uid;
+      allow update: if member(tripId)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['data','updatedAt']);
+      allow delete: if false;
+      match /members/{uid} {
+        allow get: if signedIn() && request.auth.uid == uid;
+        allow list: if false;
+        allow create: if signedIn() && request.auth.uid == uid
+          && request.resource.data.uid == uid
+          && (
+            get(/databases/$(database)/documents/trips/$(tripId)).data.ownerId == uid
+            || (
+              request.resource.data.inviteToken is string
+              && exists(/databases/$(database)/documents/invites/$(request.resource.data.inviteToken))
+              && get(/databases/$(database)/documents/invites/$(request.resource.data.inviteToken)).data.tripId == tripId
+            )
+          );
+        allow update, delete: if false;
+      }
+    }
+    match /users/{uid}/trips/{tripId} {
+      allow get, list: if signedIn() && request.auth.uid == uid;
+      allow create, update: if signedIn() && request.auth.uid == uid
+        && member(tripId)
+        && request.resource.data.keys().hasOnly(['title','joinedAt']);
+      allow delete: if false;
+    }
+    match /invites/{token} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['tripId','title','createdBy','createdAt'])
+        && request.resource.data.createdBy == request.auth.uid
+        && member(request.resource.data.tripId);
+      allow update, delete: if false;
+    }
+  }
+}
