@@ -1,19 +1,14 @@
 # Travelalltheworld
 
-旅行規劃網頁 App。收藏地點、安排每日景點、紀錄班機及景點間交通時間與費用，並依旅伴與記帳時的自訂匯率結算。
+旅遊行程與地點收藏單頁 App，部署於 GitHub Pages。旅程資料儲存在瀏覽器，可在「分享與資料」匯出 JSON 備份。
 
-## 使用方式
+## Google 地點搜尋設定
 
-開啟 [Travelalltheworld 網頁 App](https://bai-qi-laundering.github.io/Travelalltheworld/)。先在「旅程設定」填出發日期和天數；把景點加入收藏，確認地址與位置，再排進每日行程。班機與交通可以記錄時間、費用和付款人；記帳分帳會合併計算。貼文匯入支援貼上文字，一行一間店；Google Maps 地點網址及含 `name` 欄位的 CSV 也可匯入。匯入的候選地點應由使用者確認。
+1. 在既有 Google Cloud 帳單帳戶底下建立獨立專案，啟用 **Maps JavaScript API** 與 **Places API (New)**。
+2. 建立專供網站使用的 API 金鑰，設定「應用程式限制 → 網站」：`https://bai-qi-laundering.github.io/*`。設定「API 限制」只允許上面兩項 API。
+3. 在 Google Maps Platform 的配額頁為該專案設定保守的用量限制。一般預算提醒不會停止 API 請求。
+4. 在公開網站的「地點收藏 → Google 地點設定」輸入這支受限制的金鑰。金鑰僅存於該瀏覽器的 localStorage，不會進入 GitHub 原始碼或 JSON 備份。瀏覽器請求仍會公開金鑰，因此網域與 API 限制不可省略。
 
-所有資料儲存在瀏覽器 localStorage。跨裝置請由「分享備份」匯出 JSON，再在另一裝置匯入；分享文字只供閱讀，**沒有即時多人同步**。公開的小紅書／Threads 貼文連結會經由 Jina Reader 嘗試取得內文，從明確標記的店名或地點產生候選；此服務可能被網站限制、延遲或無法讀取，候選結果仍需人工確認。公開連結會傳給 Jina Reader。不會直接讀取 Google Maps 私人收藏清單。可使用 Google Takeout 匯出資料、整理成 CSV 後匯入，或貼上店名／地圖網址。
+啟用後，匯入的店名會以 Google Places Text Search 查詢。名稱與門牌明確相符時自動連結 Google Place ID；結果有歧義則留待使用者按 ⌖ 選擇。已比對的 Google 地點顯示在 Google 地圖上，照片及評分從本次頁面的 Google 結果呈現。照片網址、評分、營業時間與 Google 座標不寫入備份或 localStorage；再次開啟頁面時會重新取得資料，因此可能產生額外請求。只有 Place ID 長期保留。
 
-地圖使用 Leaflet 與 OpenStreetMap 瓦片；「搜尋位置」按下後呼叫 OpenStreetMap Nominatim。請確認搜尋結果是否為正確分店。Google Maps 路線按行程順序產生，交通時間與費用由使用者記錄，不宣稱即時交通預估。
-
-## 發布
-
-`index.html` 位於倉庫根目錄。GitHub Pages 使用 **Deploy from a branch → main → /(root)**；往後推送 `main` 會自動重新發布。
-
-## 下一步
-
-要讓 LINE 邀請連結讓旅伴同步編輯、讀取 Google Takeout 多種格式、從社群網址擷取全文或做即時路線最佳化，需要後端服務、使用者權限及相應資料來源／API。
+未設定金鑰時，既有 OpenStreetMap 地圖與手動搜尋方式仍可使用。公開貼文讀取使用 Jina Reader，連結無法讀取時可貼內文或手動輸入店名。Google Maps Platform 依 SKU 用量計費，請在 Cloud Billing 報表查看實際使用量。
