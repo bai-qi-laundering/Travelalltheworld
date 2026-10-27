@@ -78,7 +78,14 @@
     .cols-legend{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
     .cols-legend i{font-style:normal;background:var(--soft);color:var(--accent);border-radius:8px;padding:4px 8px;font-size:12px;font-weight:700}
     article.dish[data-action]{cursor:pointer}
-    @media(max-width:710px){.mobile-nav .nav-btn{width:auto;flex:1 1 0;font-size:9px;padding:6px 1px}}
+    .item-body>div:first-child{min-width:0;flex:1}
+    .item-body strong,.item-meta{overflow-wrap:anywhere}
+    @media(max-width:710px){
+      .mobile-nav .nav-btn{width:auto;flex:1 1 0;min-width:0;font-size:9px;padding:6px 1px}
+      .grid-overview,.grid-overview>*,.card,.two-col,.timeline,.day-strip,.item-body{min-width:0;max-width:100%}
+      .card-head{flex-wrap:wrap}
+      .day-strip{overflow-x:auto}
+    }
   </style>
 </head>
 <body>
