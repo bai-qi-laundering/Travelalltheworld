@@ -9,30 +9,102 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzxJzQi3V8fDiuCe1pG7uY7JZ2HfA=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <style>
     :root{--ink:#17353a;--deep:#102d32;--muted:#73838a;--line:#e3e9e5;--paper:#f6f8f3;--white:#fff;--accent:#167568;--soft:#e7f3ee;--gold:#ca9858;--shadow:0 16px 40px rgba(21,53,52,.07)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans','Noto Sans TC',sans-serif;font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}a{color:inherit}input,textarea,select{outline:none}input:focus,textarea:focus,select:focus{border-color:var(--accent)!important;box-shadow:0 0 0 3px #16756820}h1,h2,h3,p{margin-top:0}.app{max-width:1480px;min-height:100vh;margin:auto;display:grid;grid-template-columns:232px minmax(0,1fr)}.sidebar{background:var(--deep);color:#eaf5ee;padding:32px 18px;display:flex;flex-direction:column;gap:34px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:12px;padding:0 10px}.brand-mark{width:38px;height:38px;background:#e1bc83;color:var(--deep);display:grid;place-items:center;border-radius:12px;font-size:21px;font-weight:700;transform:rotate(-8deg)}.brand strong{display:block;letter-spacing:.02em;font-size:16px}.brand small{display:block;font-size:10px;color:#a9c7bd;letter-spacing:.12em}.side-label{text-transform:uppercase;letter-spacing:.16em;color:#8eb1a5;font-size:10px;margin:0 14px 9px}.side-nav{display:grid;gap:5px}.nav-btn{width:100%;border:0;border-radius:12px;text-align:left;color:#b5ccc3;background:transparent;padding:13px 15px;font-weight:600;display:flex;align-items:center;gap:12px}.nav-btn.active{background:#2a4d4c;color:white}.nav-btn:hover{background:#284746;color:white}.nav-btn .ico{font-size:18px;width:22px;text-align:center}.sidebar-bottom{margin-top:auto;border-top:1px solid #385450;padding:20px 12px 0;color:#b4ccc4;font-size:12px;line-height:1.65}.workspace{min-width:0;padding:30px clamp(20px,4vw,60px) 70px}.topbar{display:flex;align-items:start;justify-content:space-between;gap:20px;margin-bottom:29px}.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:9px}.topbar h1{font-size:clamp(25px,3vw,36px);letter-spacing:-.045em;margin:0 0 6px}.sub{color:var(--muted);font-size:13px;line-height:1.55}.top-actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}.btn{border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);padding:10px 14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap}.btn:hover{border-color:#abcfc0}.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}.btn.primary:hover{background:#0f6158}.btn.dark{background:var(--deep);color:white;border-color:var(--deep)}.btn.small{font-size:12px;padding:7px 10px}.btn.ghost{background:transparent}.hero{background:var(--deep);border-radius:22px;color:white;padding:27px 30px;display:flex;justify-content:space-between;gap:20px;position:relative;overflow:hidden;margin-bottom:24px}.hero:after{content:'✦';position:absolute;font-size:230px;line-height:1;color:#ffffff0c;right:20%;top:-92px;pointer-events:none}.hero .eyebrow{color:#a8ceae}.hero h2{font-size:26px;letter-spacing:-.03em;margin:0 0 8px}.hero p{color:#b4d2c7;margin:0}.hero-actions{align-self:center;display:flex;gap:8px;z-index:1}.hero-actions .btn{background:#ffffff16;border-color:#ffffff27;color:white}.hero-actions .primary{background:#e3c38f;border-color:#e3c38f;color:#163638}.section{display:none}.section.active{display:block}.grid-overview{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(290px,.8fr);gap:19px}.card{background:white;border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);padding:21px}.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.card-head h3{font-size:16px;margin:0;letter-spacing:-.02em}.mini{color:var(--muted);font-size:12px}.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:19px}.stat{border:1px solid var(--line);border-radius:15px;padding:15px;background:#fff}.stat small{color:var(--muted);font-weight:600}.stat strong{display:block;font-size:23px;margin-top:6px;letter-spacing:-.04em}.accent-num{color:var(--accent)}.day-strip{display:flex;gap:7px;overflow:auto;padding-bottom:5px;scrollbar-width:none}.day-strip button{border:1px solid var(--line);background:white;color:var(--muted);border-radius:10px;padding:9px 14px;white-space:nowrap;font-weight:700}.day-strip button.active{background:var(--deep);color:white;border-color:var(--deep)}.day-strip button.add{color:var(--accent);border-style:dashed}.timeline{margin:16px 0 0 7px;border-left:1px solid #c7d9d2;padding-left:22px}.timeline-item{position:relative;padding:0 0 18px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:'';width:10px;height:10px;position:absolute;left:-28px;top:12px;background:var(--accent);border:3px solid white;box-shadow:0 0 0 1px #c7d9d2;border-radius:50%}.timeline-item.transport:before{background:var(--gold)}.timeline-item.flight:before{background:#4a7b9a}.item-body{border:1px solid var(--line);border-radius:13px;padding:13px 14px;display:flex;gap:13px;align-items:center;justify-content:space-between}.item-body strong{display:block;margin:2px 0 4px}.item-meta{font-size:11px;color:var(--muted);line-height:1.6}.time{color:var(--accent);font-size:12px;font-weight:700;white-space:nowrap}.item-actions{display:flex;gap:4px}.icon-btn{border:0;background:#f4f7f3;color:#4e6b6b;border-radius:9px;padding:7px 9px;font-size:12px}.icon-btn:hover{background:#e8f1ec}.empty{padding:30px 15px;text-align:center;color:var(--muted);border:1px dashed #cbdad2;border-radius:13px;line-height:1.6}.map{height:315px;border-radius:14px;background:#e9f0eb;overflow:hidden}.map-note{font-size:11px;color:var(--muted);line-height:1.55;margin-top:10px}.section-title{font-size:21px;margin:0 0 7px}.section-intro{color:var(--muted);margin-bottom:20px;line-height:1.6}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:17px}.toolbar .grow{flex:1}.search{min-width:210px;flex:1;border:1px solid var(--line);border-radius:11px;padding:11px 13px;background:white}.places-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:13px}.place{padding:0;overflow:hidden}.place-visual{height:95px;background:linear-gradient(135deg,#e5efe5,#e6eee9 42%,#d4e1d8);display:flex;align-items:center;justify-content:center;color:#6e9886;font-size:32px}.place-body{padding:16px}.place h3{margin:0 0 5px;font-size:15px}.place p{font-size:12px;color:var(--muted);line-height:1.5;min-height:32px;margin:0 0 13px}.place-foot{display:flex;align-items:center;justify-content:space-between;gap:5px}.badge{font-size:10px;border-radius:20px;padding:4px 8px;font-weight:700;background:var(--soft);color:var(--accent)}.badge.pending{background:#fff3dd;color:#9b6722}.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.list{display:grid;gap:9px}.list-row{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}.list-row strong{display:block}.list-row small{display:block;color:var(--muted);margin-top:4px;line-height:1.5}.summary{background:#e9f3eb;border-radius:14px;padding:16px 18px;margin-bottom:16px}.summary strong{font-size:21px}.summary small{color:#51766c}.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{background:var(--soft);border:1px solid #cde4d7;padding:7px 9px;border-radius:25px;color:#236c5b;font-size:12px}.chip button{border:0;background:transparent;color:inherit;margin-left:5px}.form{display:grid;gap:13px}.field{display:grid;gap:6px}.field label{font-weight:700;font-size:12px;color:#476168}.field input,.field select,.field textarea{border:1px solid #dbe5df;background:white;border-radius:10px;padding:11px 12px;width:100%;min-width:0;color:var(--ink)}.field textarea{resize:vertical;min-height:78px}.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.help{font-size:11px;line-height:1.55;color:var(--muted)}.modal-backdrop{position:fixed;inset:0;background:#102d3299;display:none;align-items:center;justify-content:center;padding:17px;z-index:100}.modal-backdrop.open{display:flex}.modal{width:min(510px,100%);max-height:min(90vh,780px);overflow:auto;background:#fff;border-radius:20px;padding:23px;box-shadow:0 22px 90px #071d2855}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:17px}.modal-head h2{margin:0;font-size:19px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:7px}.candidates{display:grid;gap:8px;max-height:280px;overflow:auto}.candidate{border:1px solid var(--line);border-radius:11px;padding:12px;display:flex;gap:10px;align-items:start}.candidate input{margin-top:3px}.candidate strong{font-size:13px}.candidate small{display:block;color:var(--muted);margin-top:4px}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);border-radius:12px;background:var(--deep);color:white;padding:11px 16px;box-shadow:var(--shadow);z-index:150;display:none;max-width:min(90vw,500px);text-align:center}.toast.show{display:block}.mobile-nav{display:none}.muted-link{color:var(--accent);text-decoration:none;font-weight:700}.muted-link:hover{text-decoration:underline}
     @media(max-width:980px){.app{grid-template-columns:78px minmax(0,1fr)}.sidebar{padding:24px 11px}.brand{justify-content:center;padding:0}.brand div:last-child,.side-label,.nav-btn span:last-child,.sidebar-bottom{display:none}.nav-btn{justify-content:center;padding:12px}.grid-overview{grid-template-columns:1fr 1fr}.workspace{padding:26px 25px 70px}}
     @media(max-width:710px){.app{display:block}.sidebar{display:none}.workspace{padding:21px 16px 105px}.topbar{display:block;margin-bottom:17px}.topbar h1{font-size:27px}.top-actions{justify-content:flex-start;margin-top:15px}.hero{padding:22px;display:block}.hero h2{font-size:23px}.hero-actions{margin-top:19px;flex-wrap:wrap}.grid-overview,.two-col{grid-template-columns:1fr}.stat-row{gap:8px}.stat{padding:11px}.stat strong{font-size:19px}.card{padding:17px}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:white;box-shadow:0 -6px 30px #193a3217;padding:7px 3px calc(7px + env(safe-area-inset-bottom));z-index:50;justify-content:space-around}.mobile-nav .nav-btn{display:grid;justify-items:center;gap:3px;border-radius:9px;padding:7px 4px;color:#69847b;width:20%;font-size:10px}.mobile-nav .nav-btn.active{color:var(--accent);background:var(--soft)}.mobile-nav .ico{font-size:18px;width:auto}.mobile-nav .nav-btn span:last-child{display:block}.modal{padding:19px}.map{height:260px}}
   </style>
+
+  <style>
+    .scan-btn{width:40px;height:40px;border-radius:50%;padding:0;background:#fff;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;flex:none}
+    .scan-btn svg{width:18px;height:18px}
+    .top-actions{align-items:center}
+    a.icon-btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .timeline-leg{position:relative;display:flex;align-items:center;min-height:42px;margin:0 0 8px}
+    .mode-badge{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:0;padding:0;flex:none;line-height:0}
+    .mode-badge svg{width:15px;height:15px}
+    .timeline-leg .mode-badge{position:absolute;left:-36px;box-shadow:0 0 0 3px var(--paper),0 3px 8px rgba(16,45,50,.12);cursor:pointer}
+    .leg-note{border:0;background:transparent;color:#6e8085;font-size:12px;font-weight:600;text-align:left;padding:6px 0;line-height:1.45}
+    .mode-walk{background:#e7f3ee;color:#167568}
+    .mode-taxi{background:#f8f1e4;color:#a8843e}
+    .mode-plane{background:#e7f4fb;color:#3a86c8}
+    .mode-boat{background:#e5f4f6;color:#1a7a8c}
+    .mode-bus{background:#eef2e8;color:#3e6b4f}
+    .mode-train{background:#f3f0ea;color:#102d32}
+    .mode-scooter{background:#fdefe8;color:#c46b4a}
+    .mode-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .mode-chip{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;font-weight:700;color:#476168;border:1px solid var(--line);border-radius:12px;padding:8px 6px;min-width:64px;background:#fff}
+    .mode-chip input{position:absolute;opacity:0;pointer-events:none}
+    .mode-chip:has(input:checked){border-color:var(--deep);box-shadow:0 0 0 1px var(--deep);color:var(--deep)}
+    .mode-chip .mode-badge{width:36px;height:36px}
+    .mode-chip .mode-badge svg{width:18px;height:18px}
+    .warnbar{display:flex;gap:8px;align-items:flex-start;background:#fbedec;color:#c0392e;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:700;margin-top:8px}
+    .pill{display:inline-flex;align-items:center;border-radius:20px;padding:3px 8px;font-size:11px;font-weight:700;background:var(--soft);color:var(--accent);margin:0 4px 4px 0}
+    .pill.bad{background:#fdecec;color:#c0392e}
+    .dish{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 10px;background:#fff;text-align:left}
+    .dish h3{margin:0 0 2px;font-size:15px}
+    .dish .orig{margin:0;color:var(--muted);font-size:12px}
+    .dish .desc{color:#476168;font-size:13px;line-height:1.5;margin:6px 0}
+    .dish-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+    .dish-hero{margin:6px 0 0;font-size:28px;letter-spacing:-.03em}
+    .star-btn{border:0;background:transparent;color:#c8a15a;font-size:20px;padding:0 2px;line-height:1}
+    .star-btn.on{color:#a8843e}
+    .sample-tag{display:inline-block;background:#f8f1e4;color:#8a6230;border-radius:20px;padding:2px 8px;font-size:11px;font-weight:700}
+    .avoid-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:14px;cursor:pointer}
+    .avoid-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .avoid-top h3{margin:0;font-size:16px}
+    .avoid-go{color:var(--accent);font-weight:700;font-size:13px;margin-top:8px}
+    .staff-layer{position:fixed;inset:0;background:var(--paper);z-index:180;overflow:auto;padding:18px 18px 48px}
+    .staff-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .staff-head h2{margin:0;font-size:18px}
+    .staff-block{background:#fff;border-radius:18px;padding:22px 14px;margin:12px 0;text-align:center;border:1px solid var(--line)}
+    .staff-ico{font-size:42px;line-height:1;width:72px;height:72px;margin:0 auto 8px;display:grid;place-items:center;background:#e7f3ee;border-radius:50%}
+    .staff-local{font-size:clamp(22px,7vw,32px);font-weight:700;line-height:1.35;margin:8px 0 4px;word-break:break-word}
+    .staff-zh{color:var(--muted);margin:0;font-size:14px}
+    .choice{width:100%;display:flex;gap:12px;align-items:center;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:8px}
+    .choice strong{display:block;font-size:15px}
+    .choice em{display:block;font-style:normal;color:var(--muted);font-size:12px;font-weight:500}
+    .scan-photo{width:100%;max-height:180px;object-fit:cover;border-radius:12px;background:#e9f0eb;margin-bottom:10px}
+    .food-meta{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0 12px;color:var(--muted);font-size:12px}
+    .linkish{border:0;background:transparent;color:var(--accent);font-weight:700;padding:0}
+    .chip.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+    .chip input{margin-right:4px}
+    .sec-label{font-size:12px;font-weight:700;color:var(--muted);margin:12px 0 8px}
+    .miss-line{font-weight:700;padding:4px 0}
+    .rowline{display:flex;gap:10px;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+    .rowline b{flex:none}
+    .cols-legend{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+    .cols-legend i{font-style:normal;background:var(--soft);color:var(--accent);border-radius:8px;padding:4px 8px;font-size:12px;font-weight:700}
+    article.dish[data-action]{cursor:pointer}
+    .item-body>div:first-child{min-width:0;flex:1}
+    .item-body strong,.item-meta{overflow-wrap:anywhere}
+    @media(max-width:710px){
+      .mobile-nav .nav-btn{width:auto;flex:1 1 0;min-width:0;font-size:9px;padding:6px 1px}
+      .grid-overview,.grid-overview>*,.card,.two-col,.timeline,.day-strip,.item-body{min-width:0;max-width:100%}
+      .card-head{flex-wrap:wrap}
+      .day-strip{overflow-x:auto}
+    }
+  </style>
 </head>
 <body>
 <div class="app">
   <aside class="sidebar"><div class="brand"><span class="brand-mark">✧</span><div><strong>Travelalltheworld</strong><small>YOUR TRIP, YOUR WAY</small></div></div><div><p class="side-label">旅程工作台</p><nav class="side-nav" id="sideNav"></nav></div><p class="sidebar-bottom">讓收藏的每個地方<br>都變成旅程裡的一站。<br><br>資料儲存在此瀏覽器，請定期匯出備份。</p></aside>
   <main class="workspace">
-    <header class="topbar"><div><p class="eyebrow">YOUR TRAVEL JOURNAL</p><h1 id="title">我的旅程</h1><div class="sub" id="tripDates"></div></div><div class="top-actions"><button class="btn" data-action="backup">↓ 匯出備份</button><button class="btn" data-action="restore">↑ 匯入備份</button><button class="btn" data-action="editTrip">✎ 旅程設定</button></div></header>
+    <header class="topbar"><div><p class="eyebrow">YOUR TRAVEL JOURNAL</p><h1 id="title">我的旅程</h1><div class="sub" id="tripDates"></div></div><div class="top-actions"><button class="icon-btn scan-btn" type="button" data-action="scanMenu" title="掃描菜單" aria-label="掃描菜單"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8V5.8A1.8 1.8 0 0 1 5.8 4H8"/><path d="M16 4h2.2A1.8 1.8 0 0 1 20 5.8V8"/><path d="M20 16v2.2a1.8 1.8 0 0 1-1.8 1.8H16"/><path d="M8 20H5.8A1.8 1.8 0 0 1 4 18.2V16"/><path d="M7 12h10"/></svg></button><button class="btn" data-action="backup">↓ 匯出備份</button><button class="btn" data-action="restore">↑ 匯入備份</button><button class="btn" data-action="editTrip">✎ 旅程設定</button></div></header>
     <div class="hero"><div><p class="eyebrow">PLAN · EXPLORE · REMEMBER</p><h2>把想去的地方，排成一趟好旅行。</h2><p>收藏地點、班機、移動交通與花費，都放在同一張旅程表。</p></div><div class="hero-actions"><button class="btn primary" data-action="importText">＋ 匯入貼文</button><button class="btn" data-action="addPlace">＋ 收藏地點</button></div></div>
     <section class="section active" id="section-plan"><div class="stat-row"><div class="stat"><small>旅程天數</small><strong id="statDays">—</strong></div><div class="stat"><small>收藏地點</small><strong class="accent-num" id="statPlaces">—</strong></div><div class="stat"><small>總花費 / TWD</small><strong id="statCosts">—</strong></div></div><div class="grid-overview"><div class="card"><div class="card-head"><h3>每日行程</h3><div><button class="btn small" data-action="addFlight">＋ 班機</button> <button class="btn small" data-action="addTransport">＋ 交通</button></div></div><div id="dayStrip" class="day-strip"></div><div id="timeline" class="timeline"></div><div style="margin-top:17px"><button class="btn primary small" data-action="schedule">＋ 從收藏加入景點</button></div></div><div class="card"><div class="card-head"><h3>今日地圖</h3><span id="mapCount" class="mini"></span></div><div id="map" class="map"></div><div class="map-note" id="mapNote">地圖由 OpenStreetMap 提供。未確認座標的地點不會顯示為圖釘；點地點卡片可查詢確認。</div><button class="btn small" style="margin-top:12px" data-action="directions">在 Google Maps 開啟路線 ↗</button></div></div></section>
     <section class="section" id="section-places"><h2 class="section-title">地點收藏</h2><p class="section-intro">從社群貼文收藏店家，確認位置後加入每日行程。</p><div class="toolbar"><input class="search" id="placeFilter" placeholder="搜尋收藏名稱、地址或備註"><button class="btn" data-action="importText">貼文文字匯入</button><button class="btn" data-action="importCsv">CSV 匯入</button><button class="btn" data-action="googleSettings">Google 地點設定</button><button class="btn primary" data-action="addPlace">＋ 收藏地點</button></div><div id="placesGrid" class="places-grid"></div></section>
     <section class="section" id="section-flights"><div class="toolbar"><div class="grow"><h2 class="section-title">班機與移動</h2><p class="section-intro">記下起降時間與景點間的交通方式。交通花費會計入分帳。</p></div><button class="btn" data-action="addTransport">＋ 交通</button><button class="btn primary" data-action="addFlight">＋ 班機</button></div><div class="two-col"><div class="card"><div class="card-head"><h3>班機資訊</h3></div><div id="flightList" class="list"></div></div><div class="card"><div class="card-head"><h3>交通紀錄</h3></div><div id="transportList" class="list"></div></div></div></section>
     <section class="section" id="section-money"><div class="toolbar"><div class="grow"><h2 class="section-title">記帳分帳</h2><p class="section-intro">交通及手動消費一起結算，依記帳當下匯率保存台幣金額。</p></div><button class="btn primary" data-action="addExpense">＋ 記一筆</button></div><div class="two-col"><div class="card"><div class="card-head"><h3>旅程帳目</h3></div><div id="moneySummary" class="summary"></div><div id="expenseList" class="list"></div></div><div class="card"><div class="card-head"><h3>旅伴分帳</h3></div><div id="settlements" class="list"></div><div style="height:20px"></div><div class="card-head"><h3>旅伴與匯率</h3></div><div class="field"><label>旅伴（每行一位）</label><textarea id="membersInput"></textarea></div><div class="form-row" style="margin-top:12px"><div class="field"><label>幣別</label><select id="rateCurrency"><option>JPY</option><option>USD</option><option>KRW</option><option>EUR</option><option>TWD</option></select></div><div class="field"><label>1 外幣 = 幾元台幣</label><input id="rateValue" type="number" min="0.000001" step="any"></div></div><p class="help">修改匯率只影響之後新增的帳目；既有帳目保留當時換算值。</p><button class="btn small" data-action="saveSettings">儲存旅伴與匯率</button></div></div></section>
     <section class="section" id="section-share"><h2 class="section-title">分享與資料</h2><p class="section-intro">旅程存到自己的 Google 雲端；朋友收到的是行程或帳單 PDF。</p><div class="two-col"><div class="card"><div class="card-head"><h3>我的 Google 雲端旅程</h3></div><div id="drivePanel"><p class="sub">正在檢查 Google 雲端設定…</p></div></div><div class="card"><div class="card-head"><h3>傳 PDF 給朋友</h3></div><p class="sub">產生行程表或分帳單 PDF，再從 iPhone 分享選 LINE。朋友只能查看檔案，無法修改你的收藏。</p><div class="toolbar"><button class="btn primary" data-action="pdfItinerary">行程 PDF</button><button class="btn" data-action="pdfSettlement">帳單 PDF</button></div></div><div class="card"><div class="card-head"><h3>從社群收藏到 App</h3></div><p class="sub">在小紅書或 Threads 複製貼文連結，回到本站點「匯入貼文」。</p><button class="btn primary" data-action="importText">開始收藏貼文</button></div><div class="card"><div class="card-head"><h3>本機備份</h3></div><p class="sub">尚未連接 Google 雲端時資料仍留在這個瀏覽器。請保留 JSON 備份；Google Places 金鑰需在每台裝置各設定一次。</p><div class="toolbar"><button class="btn" data-action="backup">匯出 JSON</button><button class="btn" data-action="restore">匯入 JSON</button></div></div></div></section>
+    <section class="section" id="section-food"><div class="toolbar"><div class="grow"><h2 class="section-title">當地美食</h2><p class="section-intro" id="foodIntro">這趟國家的菜名字典。搜尋不用打聲調，也可以打中文。</p></div><button class="btn" data-action="dictSettings">字典來源</button></div><div id="avoidCard" class="avoid-card" data-action="showAvoidStaff"></div><input class="search" id="foodFilter" placeholder="搜尋菜名，pho bo 或 河粉" style="width:100%;margin-bottom:6px"><p class="help">不用打聲調。pho bo 會對到 Phở bò。</p><div class="food-meta" id="foodMeta"></div><div id="foodList"></div></section>
     <footer class="mini" style="margin-top:28px"><a href="privacy.html">隱私說明</a> · <a href="terms.html">使用條款</a></footer>
   </main><nav class="mobile-nav" id="mobileNav"></nav>
 </div>
 <div class="modal-backdrop" id="modalLayer"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><h2 id="modalTitle"></h2><button class="icon-btn" data-action="close">✕</button></div><div id="modalBody"></div></div></div>
-<input type="file" id="restoreFile" accept="application/json,.json" hidden><input type="file" id="csvFile" accept=".csv,text/csv" hidden><div class="toast" id="toast" role="status"></div>
+<textarea id="shareText" hidden></textarea><input type="file" id="restoreFile" accept="application/json,.json" hidden><input type="file" id="csvFile" accept=".csv,text/csv" hidden><input type="file" id="scanCamera" accept="image/*" capture="environment" hidden><input type="file" id="scanGallery" accept="image/*" hidden><div id="staffLayer" class="staff-layer" hidden><div class="staff-head"><button class="icon-btn scan-btn" type="button" data-action="closeStaff" aria-label="關閉">✕</button><h2 id="staffTitle">給店員看</h2><span id="staffSample" class="sample-tag" hidden>範例</span></div><div id="staffBody"></div><p class="help" id="staffFoot"></p></div><div class="toast" id="toast" role="status"></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="drive-config.js"></script>
 <script>
@@ -43,10 +115,10 @@
   let googleKey=localStorage.getItem(GOOGLE_KEY_STORAGE)||'', googleLoader=null, googleMap=null, googleMarkers=[];
   const googlePlaces=new Map(); // Google 地點內容只留在本次頁面，不放進備份或 localStorage。
   const today=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Taipei'});
-  const fresh=()=>({version:1,title:'我的下一趟旅行',start:today,days:3,day:1,places:[],events:[],expenses:[],members:['我'],rates:{TWD:1,JPY:.215,USD:32.1,KRW:.024,EUR:35}});
+  const fresh=()=>({version:1,title:'我的下一趟旅行',start:today,days:3,day:1,country:'',places:[],events:[],expenses:[],members:['我'],rates:{TWD:1,JPY:.215,USD:32.1,KRW:.024,EUR:35},avoids:[],avoidCustom:[],dictSheets:{},foodFavs:[]});
   function valid(x){return x&&typeof x==='object'&&Array.isArray(x.places)&&Array.isArray(x.events)&&Array.isArray(x.expenses)&&Array.isArray(x.members)&&x.rates&&Number.isInteger(Number(x.days))}
   let state;try{const x=JSON.parse(localStorage.getItem(KEY));state=valid(x)?{...fresh(),...x}:fresh()}catch{state=fresh()}
-  const nav=[['plan','行程地圖','◈'],['places','地點收藏','⌖'],['flights','班機交通','✈'],['money','記帳分帳','＄'],['share','分享備份','↗']];
+  const nav=[['plan','行程地圖','◈'],['places','地點收藏','⌖'],['flights','班機交通','✈'],['money','記帳分帳','＄'],['share','分享備份','↗'],['food','當地美食','🍜']];
   let tab='plan',map=null,markers=null,candidates=[],claimedCount=0;
   const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const id=()=>crypto.randomUUID?.()||String(Date.now())+Math.random();
@@ -54,13 +126,360 @@
   const dateOf=d=>{const z=new Date(`${state.start}T12:00:00`);z.setDate(z.getDate()+d-1);return z.toLocaleDateString('zh-TW',{month:'numeric',day:'numeric',weekday:'short'} )};
   const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));window.dispatchEvent(new Event('travel-data-change'))}catch{toast('儲存空間不足，請先匯出備份')}};
   const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),3500)};
-  function view(t){tab=t;document.querySelectorAll('.section').forEach(e=>e.classList.toggle('active',e.id===`section-${t}`));document.querySelectorAll('.nav-btn').forEach(e=>e.classList.toggle('active',e.dataset.tab===t));render();window.scrollTo(0,0);if(t==='plan')setTimeout(()=>{if(googleMap)google.maps.event.trigger(googleMap,'resize');else map?.invalidateSize()},70)}
+  function view(t){tab=t;document.querySelectorAll('.section').forEach(e=>e.classList.toggle('active',e.id===`section-${t}`));document.querySelectorAll('.nav-btn').forEach(e=>e.classList.toggle('active',e.dataset.tab===t));render();window.scrollTo(0,0);if(t==='plan')setTimeout(()=>{if(googleMap)google.maps.event.trigger(googleMap,'resize');else map?.invalidateSize()},70);if(t==='food')ensureDict(false)}
   function renderNav(){const html=nav.map(([key,label,icon])=>`<button class="nav-btn ${tab===key?'active':''}" data-tab="${key}"><span class="ico">${icon}</span><span>${label}</span></button>`).join('');$('#sideNav').innerHTML=html;$('#mobileNav').innerHTML=html}
   const placesToday=()=>state.events.filter(e=>e.day===state.day&&e.kind==='place').sort(sortEvents);
   const sortEvents=(a,b)=>(a.time||'').localeCompare(b.time||'');
-  function render(){renderNav();$('#title').textContent=state.title;$('#tripDates').textContent=`${state.start} 出發 · ${state.days} 天 · ${state.members.length} 位旅伴`;$('#statDays').textContent=`${state.days} 天`;$('#statPlaces').textContent=state.places.length;$('#statCosts').textContent=money(state.expenses.reduce((a,e)=>a+Number(e.twd||0),0));renderPlan();renderPlaces();renderTravel();renderMoney();renderShare()}
+  function render(){renderNav();$('#title').textContent=state.title;$('#tripDates').textContent=`${state.start} 出發 · ${state.days} 天 · ${state.members.length} 位旅伴`;$('#statDays').textContent=`${state.days} 天`;$('#statPlaces').textContent=state.places.length;$('#statCosts').textContent=money(state.expenses.reduce((a,e)=>a+Number(e.twd||0),0));renderPlan();renderPlaces();renderTravel();renderMoney();renderShare();renderFood()}
+
+  const MODES=[
+    {id:'walk',label:'步行',re:/步行|走路|徒步|\bwalk\b/i},
+    {id:'plane',label:'飛機',re:/飛機|航班|飛行|\bplane\b|\bflight\b/i},
+    {id:'boat',label:'船',re:/船|渡輪|ferry|\bboat\b/i},
+    {id:'bus',label:'公車',re:/公車|巴士|\bbus\b/i},
+    {id:'train',label:'火車',re:/火車|電車|地鐵|捷運|高鐵|\btrain\b|metro|subway|\brail\b/i},
+    {id:'scooter',label:'機車',re:/機車|摩托|scooter|motor/i},
+    {id:'taxi',label:'計程車',re:/計程車|出租車|開車|汽車|\btaxi\b|\buber\b|\bgrab\b|\bcar\b/i}
+  ];
+  const MODE_ICON={
+    walk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="4.5" r="1.5"/><path d="M10 21l1.2-6.2L9 12.2 11 8.5h2.2l1.6 3.2 2.2 1.3M11.2 14.8 13 21"/></svg>',
+    taxi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5h16l-1.3-4.4a2 2 0 0 0-1.9-1.4H7.4a2 2 0 0 0-1.9 1.3L4 15.5z"/><path d="M7 10.2 8.2 7.2h7.6L17 10.2"/><circle cx="7.2" cy="15.5" r=".9" fill="currentColor" stroke="none"/><circle cx="16.8" cy="15.5" r=".9" fill="currentColor" stroke="none"/></svg>',
+    plane:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 13h6l6.5-7 1.6 1.2L13.2 13H20l1 1.6-1 1.6h-6.8l3.9 5.6-1.6 1.2L10 16.2H3l-1-1.6L3 13z"/></svg>',
+    boat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5c1.6 1.4 2.8 1.4 4.4 0s2.8-1.4 4.4 0 2.8 1.4 4.4 0 2.6-1.4 4.2 0"/><path d="M6.5 15 8.2 9h5.2l1.2 6"/><path d="M13.4 9V5.2h2.6"/></svg>',
+    bus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="4" width="14" height="12" rx="2"/><path d="M5 11h14M8 20v-2.2M16 20v-2.2"/><circle cx="8.2" cy="16.2" r="1" fill="currentColor" stroke="none"/><circle cx="15.8" cy="16.2" r="1" fill="currentColor" stroke="none"/></svg>',
+    train:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="3" width="12" height="13" rx="3"/><path d="M6 10.5h12M8.5 20 12 16.2 15.5 20"/><circle cx="9" cy="13.2" r=".8" fill="currentColor" stroke="none"/><circle cx="15" cy="13.2" r=".8" fill="currentColor" stroke="none"/></svg>',
+    scooter:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7" cy="17" r="2.1"/><circle cx="17.2" cy="17" r="2.1"/><path d="M9 17h5.2M14.2 17 16.2 8h3M16.2 8l-2.8 1.2"/></svg>'
+  };
+  const ORDER_ICON='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h5v5"/><path d="M19 5 10 14"/><path d="M16 13.5V19a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h5.5"/></svg>';
+  const AVOIDS=[
+    {id:'豬肉',local:'Tôi không ăn thịt heo',icon:'🐖'},
+    {id:'牛肉',local:'Tôi không ăn thịt bò',icon:'🐄'},
+    {id:'花生',local:'Tôi dị ứng với đậu phộng',icon:'🥜'},
+    {id:'海鮮',local:'Tôi không ăn hải sản',icon:'🦐'},
+    {id:'香菜',local:'Tôi không ăn rau mùi',icon:'🌿'},
+    {id:'蛋',local:'Tôi không ăn trứng',icon:'🥚'},
+    {id:'奶製品',local:'Tôi không ăn sữa',icon:'🥛'},
+    {id:'不要辣',local:'Tôi không ăn cay',icon:'🌶'}
+  ];
+  const SAMPLE_DISHES=[
+    {original:'Phở bò',zh:'牛肉河粉',desc:'清甜牛肉湯配米線，常撒蔥與香菜。',ingredients:['牛肉','香菜'],spice:'不辣',tags:['湯','主食']},
+    {original:'Bánh mì',zh:'越南法國麵包',desc:'脆皮麵包夾肉、醃菜與香菜，辣度可以調。',ingredients:['豬肉','香菜'],spice:'可調辣',tags:['主食']},
+    {original:'Bún chả',zh:'河內烤肉米線',desc:'炭烤豬肉配米線與魚露。',ingredients:['豬肉'],spice:'微辣',tags:['主食']},
+    {original:'Bánh xèo',zh:'越南煎餅',desc:'薑黃米漿煎餅，包生菜吃。',ingredients:['豬肉','海鮮'],spice:'不辣',tags:['主食']},
+    {original:'Gỏi cuốn',zh:'生春捲',desc:'米紙捲蝦與米線，沾花生醬。',ingredients:['海鮮','花生'],spice:'不辣',tags:['輕食']},
+    {original:'Cà phê sữa đá',zh:'越南冰咖啡',desc:'濃咖啡加煉乳，倒在冰塊上。',ingredients:['奶製品'],spice:'不辣',tags:['飲料']}
+  ];
+  const OCR_LANG={越南:'vie',日本:'jpn',韓國:'kor',泰國:'tha',台灣:'chi_tra',中國:'chi_sim',香港:'chi_tra',法國:'fra',義大利:'ita',西班牙:'spa',德國:'deu',美國:'eng',英國:'eng',新加坡:'eng',馬來西亞:'msa',印尼:'ind'};
+  const DICT_COUNTRIES=['越南','日本','韓國','泰國','台灣','法國','義大利','美國','英國','新加坡'];
+  const DICT_KEY='travelalltheworld.dict.v1';
+  let dictCacheMem=null, dictFlight=null, favOnly=false, ocrWorker=null, ocrLang='', tessPromise=null, scanPhoto='';
+  function modeIdOf(e){
+    if(e&&MODES.some(m=>m.id===e.modeId)) return e.modeId;
+    const t=String(e?.mode||'');
+    for(const m of MODES) if(m.id!=='taxi'&&m.re.test(t)) return m.id;
+    return 'taxi';
+  }
+  function modeLabel(id){return MODES.find(m=>m.id===id)?.label||'計程車'}
+  function normalizeState(s){
+    s.avoids=Array.isArray(s.avoids)?s.avoids.filter(x=>AVOIDS.some(a=>a.id===x)):[];
+    s.avoidCustom=Array.isArray(s.avoidCustom)?s.avoidCustom.map(x=>String(x).trim()).filter(Boolean):[];
+    s.foodFavs=Array.isArray(s.foodFavs)?s.foodFavs.map(String):[];
+    s.dictSheets=s.dictSheets&&typeof s.dictSheets==='object'&&!Array.isArray(s.dictSheets)?s.dictSheets:{};
+    s.country=typeof s.country==='string'?s.country:'';
+    (s.events||[]).forEach(e=>{
+      if(!e||typeof e!=='object') return;
+      if(e.kind==='transport') e.modeId=modeIdOf(e);
+      if(typeof e.bookingUrl!=='string') e.bookingUrl='';
+      if(typeof e.orderNo!=='string') e.orderNo='';
+      if(e.kind==='place'&&e.category!=='住宿') e.category='景點';
+    });
+    return s;
+  }
+  function tripCountry(){return String(state.country||'').trim()}
+  function fold(s){return String(s??'').normalize('NFD').replace(/\p{M}/gu,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().replace(/\s+/g,' ').trim()}
+  function readDictCache(){
+    if(dictCacheMem) return dictCacheMem;
+    try{dictCacheMem=JSON.parse(localStorage.getItem(DICT_KEY)||'{}')}catch{dictCacheMem={}}
+    if(!dictCacheMem||typeof dictCacheMem!=='object'||Array.isArray(dictCacheMem)) dictCacheMem={};
+    return dictCacheMem;
+  }
+  function writeDictCache(c){dictCacheMem=c;try{localStorage.setItem(DICT_KEY,JSON.stringify(c))}catch{toast('字典存不進這支手機，仍可看這次下載的內容')}}
+  function sheetCsvUrl(link){
+    const raw=String(link||'').trim();
+    if(!raw) return '';
+    let u; try{u=new URL(raw)}catch{return ''}
+    if(u.protocol!=='https:') return '';
+    if(/[?&](output|format)=csv/i.test(u.search)||/\/export/i.test(u.pathname)||/\.csv($|\?)/i.test(u.pathname)) return u.href;
+    const pub=u.pathname.match(/\/spreadsheets\/d\/e\/([^/]+)/);
+    if(pub) return `https://docs.google.com/spreadsheets/d/e/${pub[1]}/pub?output=csv`;
+    const id=u.pathname.match(/\/spreadsheets\/d\/([^/]+)/);
+    if(id){const gid=u.searchParams.get('gid')||'0'; return `https://docs.google.com/spreadsheets/d/${id[1]}/export?format=csv&gid=${encodeURIComponent(gid)}`}
+    return '';
+  }
+  function parseDictCsv(text){
+    const rows=csvRows(String(text||'').replace(/^\uFEFF/,''));
+    if(!rows.length) throw Error('試算表是空的');
+    const head=rows[0].map(x=>String(x||'').trim());
+    const need=['原文','中文名','說明','食材','辣度','標籤'];
+    const idx=Object.fromEntries(need.map(n=>[n,head.indexOf(n)]));
+    const missing=need.filter(n=>idx[n]<0);
+    if(missing.length) throw Error('缺少欄位：'+missing.join('、'));
+    const split=s=>String(s||'').split(/[、,，/|｜;；]/).map(x=>x.trim()).filter(Boolean);
+    const dishes=[];
+    for(const row of rows.slice(1)){
+      const original=String(row[idx['原文']]||'').trim();
+      const zh=String(row[idx['中文名']]||'').trim();
+      if(!original&&!zh) continue;
+      dishes.push({original:original||zh,zh:zh||original,desc:String(row[idx['說明']]||'').trim(),ingredients:split(row[idx['食材']]),spice:String(row[idx['辣度']]||'').trim(),tags:split(row[idx['標籤']])});
+    }
+    if(!dishes.length) throw Error('沒有讀到任何菜色');
+    return dishes;
+  }
+  function dictKey(){return tripCountry()||'越南'}
+  function currentPack(){
+    const key=dictKey();
+    const cache=readDictCache()[key];
+    if(cache&&Array.isArray(cache.dishes)&&cache.dishes.length) return {country:key,sample:false,updatedAt:cache.updatedAt||'',dishes:cache.dishes};
+    if(!tripCountry()||key==='越南') return {country:'越南',sample:true,updatedAt:'',dishes:SAMPLE_DISHES};
+    return {country:key,sample:false,updatedAt:'',dishes:[]};
+  }
+  async function refreshDict(country){
+    const link=(state.dictSheets||{})[country]||'';
+    const url=sheetCsvUrl(link);
+    if(!link) throw Error('請先貼上'+country+'的試算表連結');
+    if(!url) throw Error('請貼上 https 的 Google 試算表連結');
+    const res=await fetch(url);
+    if(!res.ok) throw Error('讀不到試算表（'+res.status+'）。請發布成 CSV 後再試');
+    const dishes=parseDictCsv(await res.text());
+    const cache=readDictCache();
+    cache[country]={updatedAt:new Date().toISOString(),dishes};
+    writeDictCache(cache);
+    return dishes.length;
+  }
+  function ensureDict(force){
+    if(tab!=='food') return;
+    const key=dictKey();
+    const link=(state.dictSheets||{})[key]||'';
+    const cache=readDictCache()[key];
+    if(!force&&(cache?.dishes?.length||!link)) return;
+    if(!link) return;
+    if(dictFlight) return;
+    dictFlight=(async()=>{
+      try{const n=await refreshDict(key); toast(`已下載 ${n} 道菜`)}
+      catch(err){toast(err.message||'字典更新失敗')}
+      finally{dictFlight=null; if(tab==='food') renderFood()}
+    })();
+  }
+  function avoidedSet(){return new Set([...(state.avoids||[]),...(state.avoidCustom||[])])}
+  function dishHits(d){
+    const avoid=avoidedSet(); const hits=[];
+    for(const ing of d.ingredients||[]) if(avoid.has(ing)) hits.push(ing);
+    if(avoid.has('不要辣')&&d.spice&&/辣/.test(d.spice)&&!/不辣/.test(d.spice)) hits.push('辣');
+    return hits;
+  }
+  function favId(d){return dictKey()+'\t'+d.original}
+  function isFav(d){return (state.foodFavs||[]).includes(favId(d))}
+  function fmtTime(iso){if(!iso) return ''; const d=new Date(iso); if(Number.isNaN(+d)) return ''; return d.toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}
+  function dishCard(d,opts){
+    const hits=dishHits(d);
+    const pills=[d.spice?`<span class="pill">${esc(d.spice)}</span>`:'',...(d.tags||[]).map(t=>`<span class="pill">${esc(t)}</span>`),...(d.ingredients||[]).map(i=>`<span class="pill ${hits.includes(i)?'bad':''}">${hits.includes(i)?'含':''}${esc(i)}</span>`)].filter(Boolean).join('');
+    const warn=hits.length?`<div class="warnbar">含有你不吃的食材 · ${esc(hits.join('、'))}</div>`:'';
+    const star=opts.star?`<button class="star-btn ${isFav(d)?'on':''}" data-action="toggleFav" data-fav="${esc(d.original)}" aria-label="${isFav(d)?'取消收藏':'收藏'}">${isFav(d)?'★':'☆'}</button>`:'';
+    const open=opts.open?` data-action="openDish" data-dish="${esc(d.original)}"`:'';
+    return `<article class="dish"${open}><div class="dish-top"><div><h3>${esc(d.zh||d.original)}</h3><p class="orig">${esc(d.original)}</p></div>${star}</div>${d.desc?`<p class="desc">${esc(d.desc)}</p>`:''}<div>${pills}</div>${warn}</article>`;
+  }
+  function renderFood(){
+    const pack=currentPack();
+    const chosen=[...(state.avoids||[]),...(state.avoidCustom||[])];
+    const word=pack.country==='越南'||pack.sample?'越文':'在地文字';
+    const card=$('#avoidCard');
+    if(!card) return;
+    card.innerHTML=`<div class="avoid-top"><h3>我不吃的食材</h3><button class="icon-btn" type="button" data-action="editAvoids" title="編輯">✎</button></div><div class="chips">${chosen.length?chosen.map(x=>`<span class="chip">${esc(x)}</span>`).join(''):'<span class="mini">還沒設定。點鉛筆選擇豬肉、香菜或其他。</span>'}</div><div class="avoid-go">點一下，用${word}給店員看</div>`;
+    const intro=$('#foodIntro');
+    if(intro) intro.textContent=pack.sample?(tripCountry()?`「${pack.country}」還沒有下載的字典，先顯示內建越南範例。`:'尚未設定旅程國家，先顯示內建越南範例。可在旅程設定填國家。'):`正在看${pack.country}的字典。搜尋不用打聲調，也可以打中文。`;
+    const when=pack.updatedAt?fmtTime(pack.updatedAt):'尚未下載';
+    $('#foodMeta').innerHTML=`<span>${esc(pack.country)} · ${esc(when)}${pack.sample?' <span class="sample-tag">範例字典</span>':''}</span><span><button type="button" class="linkish" data-action="toggleFavOnly">${favOnly?'看全部':'只看收藏'}</button> · <button type="button" class="linkish" data-action="refreshDict">更新字典</button></span>`;
+    const q=fold($('#foodFilter')?.value||'');
+    let list=pack.dishes.filter(d=>!q||fold(d.original).includes(q)||fold(d.zh).includes(q)||fold(d.desc).includes(q)||(d.tags||[]).some(t=>fold(t).includes(q))||(d.ingredients||[]).some(t=>fold(t).includes(q)));
+    if(favOnly) list=list.filter(isFav);
+    $('#foodList').innerHTML=list.length?list.map(d=>dishCard(d,{star:true,open:true})).join(''):`<div class="empty">${pack.dishes.length?'沒有符合的菜。':'這個國家還沒有字典。到字典來源貼上試算表連結，再按更新字典。'}</div>`;
+  }
+  function matchLines(text,dishes){
+    const matched=[], seen=new Set(), unmatched=[];
+    for(const raw of String(text||'').split(/\n+/)){
+      const line=raw.trim();
+      const f=fold(line);
+      if(f.length<2) continue;
+      const hits=dishes.filter(d=>[d.original,d.zh].some(name=>{const n=fold(name); return n.length>=2&&(f===n||f.includes(n))}));
+      if(hits.length) hits.forEach(d=>{if(!seen.has(d.original)){seen.add(d.original); matched.push(d)}});
+      else if(!/^[\d\s.,:;|/\\+\-–—]+$/.test(line)) unmatched.push(line);
+    }
+    return {matched,unmatched};
+  }
+  function translateUrl(text){return 'https://translate.google.com/?sl=auto&tl=zh-TW&text='+encodeURIComponent(text)+'&op=translate'}
+  function platformName(url){
+    let host=''; try{host=new URL(url).hostname.replace(/^www\./,'').toLowerCase()}catch{return ''}
+    if(host==='agoda.com'||host.endsWith('.agoda.com')) return 'Agoda';
+    if(host==='booking.com'||host.endsWith('.booking.com')) return 'Booking.com';
+    if(host==='klook.com'||host.endsWith('.klook.com')) return 'Klook';
+    if(host==='kkday.com'||host.endsWith('.kkday.com')) return 'KKday';
+    if(host==='trip.com'||host.endsWith('.trip.com')) return 'Trip.com';
+    return host;
+  }
+  function platformHint(url){
+    const u=String(url||'').trim();
+    if(!u) return '未填訂單連結。平台名稱只顯示在這張表。';
+    if(!/^https:\/\//i.test(u)) return '請使用 https 連結，iPhone 才能用已安裝的 App 打開。';
+    const name=platformName(u);
+    if(['Agoda','Booking.com','Klook','KKday','Trip.com'].includes(name)) return '這個連結會以 '+name+' 開啟。';
+    return '這個連結會直接開啟（'+name+'）。';
+  }
+  function orderLink(e){
+    const url=String(e?.bookingUrl||'').trim();
+    if(!/^https:\/\//i.test(url)) return '';
+    return `<a class="icon-btn" title="開啟訂單" aria-label="開啟訂單" href="${esc(url)}">${ORDER_ICON}</a>`;
+  }
+  function legCaption(e){
+    const label=modeLabel(modeIdOf(e));
+    const bits=[];
+    const custom=String(e.mode||'').trim();
+    if(custom&&custom!==label) bits.push(custom);
+    if(e.note) bits.push(e.note);
+    else if(e.from||e.to) bits.push([e.from,e.to].filter(Boolean).join(' → '));
+    if(Number(e.duration)) bits.push('約 '+Number(e.duration)+' 分鐘');
+    return bits.join(' · ')||label;
+  }
+  function transportLeg(e){
+    const idm=modeIdOf(e);
+    return `<div class="timeline-leg"><button type="button" class="mode-badge mode-${idm}" data-action="editEvent" data-id="${esc(e.id)}" aria-label="編輯${modeLabel(idm)}">${MODE_ICON[idm]||''}</button><button type="button" class="leg-note" data-action="editEvent" data-id="${esc(e.id)}">${esc(legCaption(e))}</button></div>`;
+  }
+  function openStaff(title,blocks,foot,sample){
+    $('#staffTitle').textContent=title;
+    $('#staffSample').hidden=!sample;
+    $('#staffBody').innerHTML=blocks.map(b=>`<div class="staff-block"><div class="staff-ico" aria-hidden="true">${b.icon||''}</div><p class="staff-local">${esc(b.local)}</p><p class="staff-zh">${esc(b.zh)}</p></div>`).join('')||'<div class="empty">還沒有要給店員看的內容。</div>';
+    $('#staffFoot').textContent=foot;
+    $('#staffLayer').hidden=false;
+    $('#staffLayer').scrollTop=0;
+  }
+  function showAvoidStaff(){
+    const preset=(state.avoids||[]).map(id=>AVOIDS.find(a=>a.id===id)).filter(Boolean).map(a=>({icon:a.icon,local:a.local,zh:a.id}));
+    const custom=(state.avoidCustom||[]).map(text=>({icon:'✎',local:text,zh:'自訂'}));
+    const sample=!tripCountry()||tripCountry()==='越南';
+    openStaff('給店員看',[...preset,...custom], sample?'存在這支手機裡，沒有網路也能打開。範例 · 越南文':'存在這支手機裡，沒有網路也能打開。自訂項目只顯示你輸入的文字。', sample);
+  }
+  function showDishStaff(b){
+    const d=currentPack().dishes.find(x=>x.original===b?.dataset?.dish);
+    if(!d) return;
+    const pack=currentPack();
+    openStaff('給店員看',[{icon:'🍽',local:d.original,zh:d.zh||''}],'把這一行轉過去給店員看。沒有網路也能打開。', pack.sample);
+  }
+  function editAvoids(){
+    const custom=(state.avoidCustom||[]).join('\n');
+    modal('我不吃的食材',`<form data-form="avoids" class="form"><p class="help">設一次就好。這趟的菜若含這些，列表和掃描結果都會標紅。</p><div class="chips">${AVOIDS.map(a=>`<label class="chip ${(state.avoids||[]).includes(a.id)?'on':''}"><input type="checkbox" name="avoid" value="${esc(a.id)}" ${(state.avoids||[]).includes(a.id)?'checked':''}> ${esc(a.id)}</label>`).join('')}</div><div class="field"><label for="f-avoidCustom">自己加一項（每行一項）</label><textarea id="f-avoidCustom" name="avoidCustom" placeholder="例如：酒、羊肉">${esc(custom)}</textarea></div>${actions('儲存')}</form>`);
+  }
+  function dictSettings(){
+    const keys=[...new Set([...DICT_COUNTRIES,...Object.keys(state.dictSheets||{}),tripCountry()].filter(Boolean))];
+    const active=tripCountry();
+    const pack=currentPack();
+    modal('字典來源',`<form data-form="dict" class="form"><p class="help">每個國家一份 Google 試算表。${active?`這趟是${esc(active)}，會自動用這一份。`:'這趟還沒填國家，先用越南。'}下載後可離線查。只有打開當地美食，或按更新字典，才會連線。</p><div class="cols-legend">${['原文','中文名','說明','食材','辣度','標籤'].map(c=>`<i>${c}</i>`).join('')}</div>${pack.sample?'<p class="help"><span class="sample-tag">範例字典</span> 現在列表裡的菜是內建越南範例。貼上連結並更新後會換成你的字典。</p>':''}${keys.map(c=>`<div class="field"><label>${esc(c)}${c===(active||'越南')?' · 這趟自動選取':''}${readDictCache()[c]?.updatedAt?' · 上次更新 '+esc(fmtTime(readDictCache()[c].updatedAt)):''}</label><input name="sheet-${esc(c)}" value="${esc((state.dictSheets||{})[c]||'')}" placeholder="貼上試算表連結" inputmode="url"></div>`).join('')}<p class="help">試算表請用「檔案 → 分享 → 發布到網路 → 逗號分隔值 (.csv)」。第一列欄名要是上面那六個。</p><div class="modal-actions"><button type="button" class="btn" data-action="close">完成</button><button class="btn" type="submit" name="do" value="save">儲存連結</button><button class="btn primary" type="submit" name="do" value="update">更新字典</button></div></form>`);
+  }
+  async function doRefreshDict(){
+    const key=dictKey();
+    if(!(state.dictSheets||{})[key]){dictSettings(); toast('先貼上'+key+'的試算表連結'); return}
+    try{toast('正在更新字典…'); const n=await refreshDict(key); toast(`已更新 ${n} 道菜`)}
+    catch(err){toast(err.message||'字典更新失敗')}
+    if(tab==='food') renderFood();
+  }
+  function openDish(b){
+    const d=currentPack().dishes.find(x=>x.original===b?.dataset?.dish);
+    if(!d) return;
+    const hits=dishHits(d);
+    const pack=currentPack();
+    modal('菜色',`<div class="dish-top"><div>${pack.sample?'<span class="sample-tag">範例</span> ':''}<span class="mini">${esc(pack.country)}</span><h2 class="dish-hero">${esc(d.original)}</h2><p class="sub">${esc(d.zh||'')}</p></div><button type="button" class="star-btn ${isFav(d)?'on':''}" data-action="toggleFav" data-fav="${esc(d.original)}" aria-label="收藏">${isFav(d)?'★':'☆'}</button></div><article class="dish"><p class="desc">${esc(d.desc||'沒有說明')}</p><div class="rowline"><b>食材</b><span>${esc((d.ingredients||[]).join('、')||'—')}</span></div><div class="rowline"><b>辣度</b><span>${esc(d.spice||'—')}</span></div><div class="rowline"><b>標籤</b><span>${esc((d.tags||[]).join('、')||'—')}</span></div></article>${hits.length?`<div class="warnbar">含有你不吃的食材：${esc(hits.join('、'))}</div>`:''}<div class="modal-actions"><button type="button" class="btn primary" data-action="showDishStaff" data-dish="${esc(d.original)}">給店員看</button></div><p class="help">把「${esc(d.original)}」放大，轉過去給店員看。星星會把這道菜留在這支手機。</p>`);
+  }
+  function toggleFav(b){
+    const original=b?.dataset?.fav||'';
+    const d=currentPack().dishes.find(x=>x.original===original);
+    if(!d) return;
+    const key=favId(d);
+    const has=(state.foodFavs||[]).includes(key);
+    state.foodFavs=has?(state.foodFavs||[]).filter(x=>x!==key):[...(state.foodFavs||[]),key];
+    persist();
+    renderFood();
+    if($('#modalLayer').classList.contains('open')&&$('#modalTitle').textContent==='菜色') openDish(b);
+  }
+  function ocrLangFor(country){return OCR_LANG[country]||(country?'eng':'vie')}
+  function loadTesseract(){
+    if(window.Tesseract) return Promise.resolve(window.Tesseract);
+    if(tessPromise) return tessPromise;
+    tessPromise=new Promise((resolve,reject)=>{
+      const s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+      s.async=true;
+      s.onload=()=>window.Tesseract?resolve(window.Tesseract):reject(Error('辨識工具無法載入'));
+      s.onerror=()=>{tessPromise=null; reject(Error('辨識工具無法載入，請連上網路後再掃描'))};
+      document.head.append(s);
+    });
+    return tessPromise;
+  }
+  function downscale(file){
+    return new Promise((resolve,reject)=>{
+      const img=new Image();
+      const url=URL.createObjectURL(file);
+      img.onload=()=>{
+        const max=1280; let w=img.naturalWidth||img.width, h=img.naturalHeight||img.height;
+        const scale=Math.min(1,max/Math.max(w,h)); w=Math.max(1,Math.round(w*scale)); h=Math.max(1,Math.round(h*scale));
+        const canvas=document.createElement('canvas'); canvas.width=w; canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        URL.revokeObjectURL(url); resolve(canvas);
+      };
+      img.onerror=()=>{URL.revokeObjectURL(url); reject(Error('這張照片讀不起來'))};
+      img.src=url;
+    });
+  }
+  async function recognize(canvas){
+    const T=await loadTesseract();
+    const lang=ocrLangFor(tripCountry());
+    if(!ocrWorker||ocrLang!==lang){
+      if(ocrWorker){try{await ocrWorker.terminate()}catch{}}
+      ocrWorker=await T.createWorker(lang);
+      ocrLang=lang;
+    }
+    const {data}=await ocrWorker.recognize(canvas);
+    return data?.text||'';
+  }
+  function scanMenu(){
+    modal('掃描菜單',`<p class="sub">拍一張，或從圖庫選。辨識在這支手機上完成。</p><button type="button" class="choice" data-action="pickCamera"><span><strong>拍照</strong><em>對準菜單，拍下來辨識</em></span></button><button type="button" class="choice" data-action="pickGallery"><span><strong>從圖庫選擇</strong><em>用已經拍好的菜單照片</em></span></button><p class="help">菜單照片不會上傳。對不到字典的字，再另外開 Google 翻譯或 Google Lens。</p><div class="modal-actions"><button type="button" class="btn" data-action="close">取消</button></div>`);
+  }
+  function showScanResult(pack,result){
+    const matched=result.matched.map(d=>dishCard(d,{star:false,open:true})).join('');
+    const miss=result.unmatched;
+    const missHtml=miss.length?`<div class="sec-label">沒對上字典</div><div class="dish">${miss.map(line=>`<div class="miss-line">${esc(line)}</div>`).join('')}<p class="help">這些字典裡沒有。可開 Google 翻譯網頁，不經這個 App 的伺服器。</p><a class="btn primary" href="${esc(translateUrl(miss.join('\n')))}">用 Google 翻譯</a></div>`:(result.matched.length?'':'<div class="empty">沒有辨識到可以對字典的文字。</div>');
+    modal('掃描結果',`${scanPhoto?`<img class="scan-photo" alt="掃描的菜單照片" src="${scanPhoto}">`:''}<p class="help">${pack.sample?'對上內建的越南範例字典。':'對上'+esc(pack.country)+'的字典。'}紅色是你不吃的食材。聲調不同也算同一道菜。${pack.sample?' <span class="sample-tag">範例字典</span>':''}</p>${matched?`<div class="sec-label">對上的菜</div>${matched}`:''}${missHtml}<a class="btn" href="https://lens.google.com/">用 Google Lens 開啟相機</a>`);
+  }
+  async function onScanFile(file){
+    if(!file) return;
+    close();
+    toast('正在這支手機上辨識菜單…');
+    try{
+      const canvas=await downscale(file);
+      scanPhoto=canvas.toDataURL('image/jpeg',.72);
+      const text=await recognize(canvas);
+      const pack=currentPack();
+      showScanResult(pack, matchLines(text, pack.dishes));
+    }catch(err){toast(err.message||'辨識失敗')}
+  }
   function renderPlan(){let days='';for(let d=1;d<=state.days;d++)days+=`<button data-day="${d}" class="${d===state.day?'active':''}">Day ${d} · ${esc(dateOf(d))}</button>`;$('#dayStrip').innerHTML=days+'<button class="add" data-action="addDay">＋ 加一天</button>';
-    const es=state.events.filter(e=>e.day===state.day).sort(sortEvents);$('#timeline').innerHTML=es.length?es.map(e=>{const place=state.places.find(p=>p.id===e.placeId);const name=e.kind==='place'?(place?.name||'已刪除地點'):e.kind==='flight'?`${e.code||'班機'} · ${e.from} → ${e.to}`:`${e.from} → ${e.to}`;const detail=e.kind==='place'?(place?.address||'待確認地點'):e.kind==='flight'?`${e.arrive||''} 抵達 · ${e.note||''}`:`${e.mode||'交通'} · ${e.duration||0} 分鐘 · ${money(e.costTwd||0)}${e.note?' · '+e.note:''}`;return `<div class="timeline-item ${e.kind}"><div class="item-body"><div><span class="time">${esc(e.time||'未設定')}</span><strong>${esc(name)}</strong><div class="item-meta">${esc(detail)}</div></div><div class="item-actions"><button class="icon-btn" title="編輯" data-action="editEvent" data-id="${esc(e.id)}">✎</button><button class="icon-btn" title="移除" data-action="deleteEvent" data-id="${esc(e.id)}">✕</button></div></div></div>`}).join(''):`<div class="empty">Day ${state.day} 尚未安排，先從收藏加入一個地點，或新增班機與交通。</div>`;
+    const es=state.events.filter(e=>e.day===state.day).sort(sortEvents);
+    $('#timeline').innerHTML=es.length?es.map(e=>{
+      if(e.kind==='transport') return transportLeg(e);
+      const place=state.places.find(p=>p.id===e.placeId);
+      const name=e.kind==='place'?(place?.name||'已刪除地點'):`${e.code||'班機'} · ${e.from} → ${e.to}`;
+      const bits=[];
+      if(e.kind==='place'){bits.push(place?.address||'待確認地點'); if(e.category==='住宿') bits.push('住宿'); if(e.note) bits.push('備註：'+e.note); if(!e.note && place?.note) bits.push('備註：'+place.note)}
+      else {if(e.arrive) bits.push(e.arrive+' 抵達'); if(e.note) bits.push(e.note)}
+      return `<div class="timeline-item ${esc(e.kind)}"><div class="item-body"><div><span class="time">${esc(e.time||'未設定')}</span><strong>${esc(name)}</strong><div class="item-meta">${esc(bits.filter(Boolean).join(' · '))}</div></div><div class="item-actions">${orderLink(e)}<button class="icon-btn" title="編輯" data-action="editEvent" data-id="${esc(e.id)}">✎</button><button class="icon-btn" title="移除" data-action="deleteEvent" data-id="${esc(e.id)}">✕</button></div></div></div>`;
+    }).join(''):`<div class="empty">Day ${state.day} 尚未安排，先從收藏加入一個地點，或新增班機與交通。</div>`;
     $('#mapCount').textContent=`${placesToday().length} 個景點`;drawMap()}
   function drawMap(){
     if(googleKey){
@@ -84,7 +503,7 @@
       return `<article class="card place">${visual}<div class="place-body"><h3>${esc(p.name)}</h3><p>${esc(g?.formattedAddress||p.address||p.note||'尚未確認地址')}</p>${info}${p.sourceUrl&&/^https:\/\//i.test(p.sourceUrl)?`<p><a class="muted-link" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">查看原貼文 ↗</a></p>`:''}${p.googlePlaceId?`<p><a class="muted-link" href="${esc(g?.googleMapsURI||'https://www.google.com/maps/search/?api=1&query_place_id='+encodeURIComponent(p.googlePlaceId)+'&query='+encodeURIComponent(p.name))}" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></p>`:''}<div class="place-foot"><span class="badge ${p.googlePlaceId||p.lat!=null?'':'pending'}">${p.googlePlaceId?'已比對 Google 店家':p.lat!=null?'已定位':'待確認位置'}</span><div><button class="icon-btn" title="搜尋位置" data-action="locate" data-id="${esc(p.id)}">⌖</button><button class="icon-btn" title="安排日期" data-action="scheduleOne" data-id="${esc(p.id)}">＋</button><button class="icon-btn" title="編輯" data-action="editPlace" data-id="${esc(p.id)}">✎</button><button class="icon-btn" title="刪除" data-action="deletePlace" data-id="${esc(p.id)}">✕</button></div></div></div></article>`}).join(''):'<div class="empty">還沒有符合的地點。貼上社群貼文、Google Maps 地點連結，或手動收藏。</div>';
     if(googleKey)list.filter(p=>p.googlePlaceId&&!googlePlaces.has(p.googlePlaceId)).forEach(hydrateGooglePlace);
   }
-  function renderTravel(){const row=e=>{const title=e.kind==='flight'?`${e.code||'班機'} · ${e.from} → ${e.to}`:`${e.from} → ${e.to}`;const detail=`Day ${e.day} · ${e.time||'未設定'}${e.arrive?'–'+e.arrive:''} · ${e.kind==='flight'?'航班':e.mode||'交通'}${e.duration?' · '+e.duration+' 分鐘':''}${e.costTwd?' · '+money(e.costTwd):''}`;return `<div class="list-row"><div><strong>${esc(title)}</strong><small>${esc(detail)}</small></div><div><button class="icon-btn" data-action="editEvent" data-id="${esc(e.id)}">✎</button> <button class="icon-btn" data-action="deleteEvent" data-id="${esc(e.id)}">✕</button></div></div>`};$('#flightList').innerHTML=state.events.filter(e=>e.kind==='flight').sort((a,b)=>a.day-b.day||sortEvents(a,b)).map(row).join('')||'<div class="empty">尚無班機紀錄</div>';$('#transportList').innerHTML=state.events.filter(e=>e.kind==='transport').sort((a,b)=>a.day-b.day||sortEvents(a,b)).map(row).join('')||'<div class="empty">尚無交通紀錄</div>'}
+  function renderTravel(){const row=e=>{const title=e.kind==='flight'?`${e.code||'班機'} · ${e.from} → ${e.to}`:`${e.from} → ${e.to}`;const how=e.kind==='flight'?'航班':(e.mode||modeLabel(modeIdOf(e)));const detail=`Day ${e.day} · ${e.time||'未設定'}${e.arrive?'–'+e.arrive:''} · ${how}${e.duration?' · '+e.duration+' 分鐘':''}${e.note?' · '+e.note:''}`;return `<div class="list-row"><div><strong>${esc(title)}</strong><small>${esc(detail)}</small></div><div>${e.kind==='flight'?orderLink(e):''}<button class="icon-btn" data-action="editEvent" data-id="${esc(e.id)}">✎</button> <button class="icon-btn" data-action="deleteEvent" data-id="${esc(e.id)}">✕</button></div></div>`};$('#flightList').innerHTML=state.events.filter(e=>e.kind==='flight').sort((a,b)=>a.day-b.day||sortEvents(a,b)).map(row).join('')||'<div class="empty">尚無班機紀錄</div>';$('#transportList').innerHTML=state.events.filter(e=>e.kind==='transport').sort((a,b)=>a.day-b.day||sortEvents(a,b)).map(row).join('')||'<div class="empty">尚無交通紀錄</div>'}
   function renderMoney(){const total=state.expenses.reduce((a,e)=>a+Number(e.twd||0),0);$('#moneySummary').innerHTML=`<small>旅程總支出</small><br><strong>${money(total)}</strong><br><small>共 ${state.expenses.length} 筆；金額為記帳時換算的台幣</small>`;$('#expenseList').innerHTML=state.expenses.length?[...state.expenses].reverse().map(e=>`<div class="list-row"><div><strong>${esc(e.title)}</strong><small>Day ${e.day} · ${esc(e.payer)} 先付 · ${esc((e.split||[]).join('、'))}</small></div><div style="text-align:right;white-space:nowrap"><strong>${money(e.twd)}</strong><small>${esc(e.currency)} ${Number(e.amount).toLocaleString()}</small><button class="icon-btn" data-action="deleteExpense" data-id="${esc(e.id)}" aria-label="刪除帳目">✕</button></div></div>`).join(''):'<div class="empty">尚未記帳；新增交通時也可直接記錄花費。</div>';
     const balances=Object.fromEntries(state.members.map(m=>[m,0]));state.expenses.forEach(e=>{const v=Number(e.twd)||0;if(!(e.payer in balances))return;balances[e.payer]+=v;const members=(e.split||[]).filter(m=>m in balances);if(members.length)members.forEach(m=>balances[m]-=v/members.length)});let debt=Object.entries(balances).filter(x=>x[1]<-.01).map(([name,v])=>({name,v:-v})),credit=Object.entries(balances).filter(x=>x[1]>.01).map(([name,v])=>({name,v}));let transfers=[];while(debt.length&&credit.length){const v=Math.min(debt[0].v,credit[0].v);transfers.push(`${debt[0].name} → ${credit[0].name}：${money(v)}`);debt[0].v-=v;credit[0].v-=v;if(debt[0].v<.01)debt.shift();if(credit[0].v<.01)credit.shift()}$('#settlements').innerHTML=transfers.length?transfers.map(t=>`<div class="list-row"><strong>${esc(t)}</strong></div>`).join(''):'<div class="empty">目前無須轉帳</div>';
     if(document.activeElement!==$('#membersInput'))$('#membersInput').value=state.members.join('\n');if(document.activeElement!==$('#rateValue'))$('#rateValue').value=state.rates[$('#rateCurrency').value]||1}
@@ -94,10 +513,10 @@
   const textarea=(label,name,value='',placeholder='')=>`<div class="field"><label for="f-${name}">${label}</label><textarea id="f-${name}" name="${name}" placeholder="${esc(placeholder)}">${esc(value)}</textarea></div>`;
   const actions=(label='儲存')=>`<div class="modal-actions"><button type="button" class="btn" data-action="close">取消</button><button class="btn primary" type="submit">${label}</button></div>`;
   const data=f=>Object.fromEntries(new FormData(f));
-  function tripModal(){modal('旅程設定',`<form data-form="trip" class="form">${field('旅程名稱','title',state.title,'text','required maxlength="70"')}<div class="form-row">${field('出發日期','start',state.start,'date','required')}${field('天數','days',state.days,'number','min="1" max="60" required')}</div>${actions()}</form>`)}
+  function tripModal(){modal('旅程設定',`<form data-form="trip" class="form">${field('旅程名稱','title',state.title,'text','required maxlength="70"')}<div class="form-row">${field('出發日期','start',state.start,'date','required')}${field('天數','days',state.days,'number','min="1" max="60" required')}</div>${field('國家','country',state.country,'text','list="countryList" maxlength="40" placeholder="例如：越南"')}<datalist id="countryList">${['越南','日本','韓國','泰國','台灣','法國','義大利','美國','英國','新加坡','馬來西亞','印尼'].map(c=>`<option value="${c}"></option>`).join('')}</datalist><p class="help">國家用來選菜名字典，以及掃描菜單時的辨識語言。</p>${actions()}</form>`)}
   function placeModal(p){modal(p?'編輯收藏地點':'收藏新地點',`<form data-form="place" data-id="${esc(p?.id||'')}" class="form">${field('地點名稱','name',p?.name,'text','required maxlength="120"')}${field('地址（可先空白）','address',p?.address)}${field('Google Maps 地點連結（可選）','url',p?.url,'url')}${textarea('備註','note',p?.note,'例如：貼文提到的招牌餐點')}${actions()}</form><p class="help">貼入完整地圖連結若含座標，會嘗試讀取；短網址可能無法直接取得位置，可再按「⌖」搜尋確認。</p>`)}
-  function scheduleModal(placeId,event){if(!state.places.length){toast('請先收藏一個地點');view('places');return}const options=state.places.map(p=>`<option value="${esc(p.id)}" ${p.id===(event?.placeId||placeId)?'selected':''}>${esc(p.name)}</option>`).join('');modal(event?'編輯景點行程':'加入每日行程',`<form data-form="schedule" data-id="${esc(event?.id||'')}" class="form"><div class="field"><label>地點</label><select name="placeId">${options}</select></div><div class="form-row">${field('第幾天','day',event?.day||state.day,'number',`min="1" max="${state.days}" required`)}${field('到達時間','time',event?.time||'10:00','time','required')}</div>${actions('儲存行程')}</form>`)}
-  function travelModal(kind,e){const flight=kind==='flight';modal(e?'編輯'+(flight?'班機':'交通'):'新增'+(flight?'班機':'交通'),`<form data-form="travel" data-id="${esc(e?.id||'')}" data-kind="${kind}" class="form"><div class="form-row">${field('第幾天','day',e?.day||state.day,'number',`min="1" max="${state.days}" required`)}${field(flight?'起飛時間':'出發時間','time',e?.time||'09:00','time','required')}</div><div class="form-row">${field(flight?'起飛地／機場':'從哪裡','from',e?.from,'text','required')}${field(flight?'目的地／機場':'到哪裡','to',e?.to,'text','required')}</div><div class="form-row">${field(flight?'抵達時間':'預計抵達時間','arrive',e?.arrive,'time')}${field(flight?'航班號碼':'交通方式','mode',flight?e?.code:e?.mode,'text',flight?'placeholder="例如 CI100"':'placeholder="電車、步行、計程車"')}</div>${field('移動時間（分鐘）','duration',e?.duration||'','number','min="0"')}${field('花費（原幣；可留空）','amount',e?.amount??'','number','min="0" step="any"')}<div class="form-row"><div class="field"><label>幣別</label><select name="currency">${Object.keys(state.rates).map(c=>`<option ${c===(e?.currency||(flight?'TWD':'JPY'))?'selected':''}>${esc(c)}</option>`).join('')}</select></div><div class="field"><label>誰先付</label><select name="payer">${state.members.map(m=>`<option ${m===e?.payer?'selected':''}>${esc(m)}</option>`).join('')}</select></div></div>${textarea('備註','note',e?.note)}<p class="help">填寫花費並儲存後，會建立或更新一筆分帳紀錄，預設由所有旅伴平分。</p>${actions()}</form>`)}
+  function scheduleModal(placeId,event){if(!state.places.length){toast('請先收藏一個地點');view('places');return}const options=state.places.map(p=>`<option value="${esc(p.id)}" ${p.id===(event?.placeId||placeId)?'selected':''}>${esc(p.name)}</option>`).join('');const cat=event?.category==='住宿'?'住宿':'景點';modal(event?'編輯行程':'加入每日行程',`<form data-form="schedule" data-id="${esc(event?.id||'')}" class="form"><div class="field"><label>地點</label><select name="placeId">${options}</select></div><div class="form-row">${field('第幾天','day',event?.day||state.day,'number',`min="1" max="${state.days}" required`)}${field('到達時間','time',event?.time||'10:00','time','required')}</div><div class="field"><label>類型</label><select name="category"><option ${cat==='景點'?'selected':''}>景點</option><option ${cat==='住宿'?'selected':''}>住宿</option></select></div>${field('訂單連結','bookingUrl',event?.bookingUrl||'','url','placeholder="https://"')}<p class="help" id="platformHint">${esc(platformHint(event?.bookingUrl||''))}</p>${field('訂單編號（可留空）','orderNo',event?.orderNo||'')}<p class="help">平台名稱只顯示在這裡。行程上只有一個開啟連結的小按鈕。請用 https，iPhone 才會用已安裝的 App 打開。</p>${actions('儲存行程')}</form>`)}
+  function travelModal(kind,e){const flight=kind==='flight';const picked=modeIdOf(e||{mode:''});const chips=`<div class="field"><label>交通方式</label><div class="mode-chips">${MODES.map(m=>`<label class="mode-chip"><input type="radio" name="modeId" value="${m.id}" ${picked===m.id?'checked':''}><span class="mode-badge mode-${m.id}">${MODE_ICON[m.id]}</span>${m.label}</label>`).join('')}</div></div>`;const keep=(!flight&&e?.mode&&e.mode!==modeLabel(picked))?`<p class="help">原本記下的方式「${esc(e.mode)}」會保留，直到你改選其他方式。</p>`:'';const book=flight?`${field('訂單連結','bookingUrl',e?.bookingUrl||'','url','placeholder="https://"')}<p class="help" id="platformHint">${esc(platformHint(e?.bookingUrl||''))}</p>${field('訂單編號（可留空）','orderNo',e?.orderNo||'')}<p class="help">平台名稱只顯示在這裡。請用 https，iPhone 才會用已安裝的 App 打開。</p>`:'';modal(e?'編輯'+(flight?'班機':'交通'):'新增'+(flight?'班機':'交通'),`<form data-form="travel" data-id="${esc(e?.id||'')}" data-kind="${kind}" class="form"><div class="form-row">${field('第幾天','day',e?.day||state.day,'number',`min="1" max="${state.days}" required`)}${field(flight?'起飛時間':'出發時間','time',e?.time||'09:00','time','required')}</div><div class="form-row">${field(flight?'起飛地／機場':'從哪裡','from',e?.from,'text','required')}${field(flight?'目的地／機場':'到哪裡','to',e?.to,'text','required')}</div><div class="form-row">${field(flight?'抵達時間':'預計抵達時間','arrive',e?.arrive,'time')}${flight?field('航班號碼','mode',e?.code||'','text','placeholder="例如 CI100"'):''}</div>${flight?'':chips}${keep}${field('移動時間（分鐘）','duration',e?.duration||'','number','min="0"')}${field(flight?'花費（原幣；可留空）':'車資（原幣；可留空）','amount',e?.amount??'','number','min="0" step="any"')}<div class="form-row"><div class="field"><label>幣別</label><select name="currency">${Object.keys(state.rates).map(c=>`<option ${c===(e?.currency||(flight?'TWD':'JPY'))?'selected':''}>${esc(c)}</option>`).join('')}</select></div><div class="field"><label>誰先付</label><select name="payer">${state.members.map(m=>`<option ${m===e?.payer?'selected':''}>${esc(m)}</option>`).join('')}</select></div></div>${textarea('備註','note',e?.note)}<p class="help">${flight?'填寫花費並儲存後，會建立或更新一筆分帳紀錄，預設由所有旅伴平分。金額只出現在這裡和記帳分帳。':'車資只記在這裡，並列入記帳分帳。每日行程只顯示方式和時間。'}</p>${book}${actions()}</form>`)}
   function expenseModal(){modal('新增消費',`<form data-form="expense" class="form">${field('消費項目','title','','text','required')}${field('金額','amount','','number','min="0.01" step="any" required')}<div class="form-row"><div class="field"><label>幣別</label><select name="currency">${Object.keys(state.rates).map(c=>`<option>${esc(c)}</option>`).join('')}</select></div>${field('第幾天','day',state.day,'number',`min="1" max="${state.days}" required`)}</div><div class="field"><label>代墊人</label><select name="payer">${state.members.map(m=>`<option>${esc(m)}</option>`).join('')}</select></div><div class="field"><label>哪些人分攤？</label><div class="chips">${state.members.map(m=>`<label class="chip"><input type="checkbox" name="split" value="${esc(m)}" checked> ${esc(m)}</label>`).join('')}</div></div>${actions('儲存帳目')}</form>`)}
   function importModal(initial=''){candidates=[];claimedCount=0;modal('從社群貼文收藏',`<div class="form">${textarea('貼上貼文文字、分享連結或店家清單','source',initial,'一行一間店，例如：\n淺草今半\n一蘭拉麵 淺草店\nhttps://www.google.com/maps/place/...')}<p class="help">公開的小紅書／Threads 連結會嘗試透過 Jina Reader 讀取貼文並列出店家。公開連結會送至該服務；讀不到時可貼上內文或手動填寫，位置仍需確認。圖片中的文字目前無法自動辨識。</p><button class="btn primary" data-action="parseText">下一步：確認店家</button><div id="candidateArea"></div></div>`)}
   function extract(text){const result=[];const seen=new Set();const add=(name,url='')=>{name=name.replace(/^[\s#@▪•\-*①-⑳\d.)、：:]+/u,'').replace(/[📍📌✨⭐️🍜🍽️☕️]/gu,'').trim().slice(0,120);if(name.length<2||seen.has(name.toLowerCase()))return;seen.add(name.toLowerCase());result.push({name,url})};for(const raw of text.split(/\n|[；;]/)){let line=raw.trim();if(!line)continue;const maps=line.match(/https?:\/\/(?:www\.)?(?:google\.[^\s/]+\/maps|maps\.app\.goo\.gl)[^\s]*/i);if(maps){const match=decodeURIComponent(maps[0]).match(/\/place\/([^/?]+)/);if(match)add(match[1].replace(/\+/g,' '),maps[0]);else if(line.replace(maps[0],'').trim())add(line.replace(maps[0],'').trim(),maps[0]);continue}line=line.replace(/https?:\/\/\S+/g,'').trim();if(!line||/^(https?:|分享|複製|小紅書|threads|查看|http)/i.test(line))continue;const parts=line.split(/[、，,]/).map(x=>x.trim());for(let part of parts){part=part.replace(/^(?:day\s*\d+|第\S+天)\s*/i,'').replace(/(?:推薦|地址|營業時間|必吃|超好吃|真的好吃|好拍|預約).*/,'').trim();if(part.length>=2&&part.length<=55)add(part)}}return result.slice(0,30)}
@@ -171,17 +590,18 @@
   function mapsUrl(p){if(p.googlePlaceId)return 'https://www.google.com/maps/search/?api=1&query_place_id='+encodeURIComponent(p.googlePlaceId)+'&query='+encodeURIComponent(p.name);if(p.url&&/^https:\/\/(?:www\.)?(?:google\.[^/]+\/maps|maps\.app\.goo\.gl)/i.test(p.url))return p.url;return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.lat!=null&&p.lng!=null?`${p.lat},${p.lng}`:p.name+(p.address?' '+p.address:''))}
   function directions(){const points=placesToday().map(e=>state.places.find(p=>p.id===e.placeId)).filter(Boolean);if(!points.length){toast('先加入地點才能開啟路線');return}let url;if(points.length===1)url=mapsUrl(points[0]);else{const term=p=>p.lat!=null&&p.lng!=null?`${p.lat},${p.lng}`:p.name;url='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(term(points[0]))+'&destination='+encodeURIComponent(term(points.at(-1)))+'&waypoints='+encodeURIComponent(points.slice(1,-1).map(term).join('|'))+'&travelmode=transit'}window.open(url,'_blank','noopener,noreferrer')}
   const handlers={editTrip:tripModal,addPlace:()=>placeModal(),schedule:()=>scheduleModal(),addFlight:()=>travelModal('flight'),addTransport:()=>travelModal('transport'),addExpense:expenseModal,importText:importModal,close,addDay:()=>{state.days++;state.day=state.days;persist();render();toast(`已新增 Day ${state.day}`)},directions,backup:()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`travelalltheworld-${state.start}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},restore:()=>$('#restoreFile').click(),importCsv:()=>$('#csvFile').click(),share:async()=>{const text=$('#shareText').value;if(navigator.share)try{await navigator.share({title:state.title,text})}catch{}else{await navigator.clipboard.writeText(text);toast('已複製行程文字')}},copy:async()=>{try{await navigator.clipboard.writeText($('#shareText').value);toast('已複製行程文字')}catch{toast('無法複製，請選取文字')}},parseText:async()=>{const t=$('#f-source').value.trim();if(!t)return toast('請先貼上文字或連結');const url=publicPostUrl(t);const button=$('[data-action="parseText"]');let readFailed=false;if(url){button.disabled=true;button.textContent='正在讀取公開貼文…';$('#candidateArea').innerHTML='<p class="help">正在取得貼文內容，可能需要十幾秒。</p>';try{const result=await readPublicPost(url);candidates=result.places;claimedCount=result.claimedCount}catch{candidates=[];readFailed=true}finally{button.disabled=false;button.textContent='下一步：確認店家'}}else candidates=extract(t);if(!candidates.length){if(url){candidates=[{name:'',address:'',sourceUrl:url}];if(readFailed)toast('目前無法讀取這篇貼文，請貼上內文或手動填店名')}else{const link=t.match(/https?:\/\/[^\s]+/i);if(link)candidates=[{name:'',address:'',sourceUrl:link[0]}]}}if(url)candidates.forEach(x=>x.sourceUrl=url);showCandidates(url)},commitCandidates:()=>{let n=0,missing=false;candidates.forEach((x,i)=>{if(!$(`[data-include="${i}"]`)?.checked)return;const name=$(`[data-name="${i}"]`).value.trim(),address=$(`[data-address="${i}"]`).value.trim();if(!name){missing=true;return}if(state.places.some(p=>p.name.toLowerCase()===name.toLowerCase()))return;const mapUrl=/^https:\/\/(?:www\.)?(?:google\.[^/]+\/maps|maps\.app\.goo\.gl)/i.test(x.url||'')?x.url:'';state.places.push({id:id(),name,address,note:'貼文匯入 · 待確認位置',url:mapUrl,sourceUrl:x.sourceUrl||(!mapUrl?x.url:'')||'',...(parseMapCoords(mapUrl)||{lat:null,lng:null})});n++});if(missing)return toast('請先填寫店名，再加入收藏');persist();close();view('places');toast(`已收藏 ${n} 個地點；請按 ⌖ 確認位置`) },saveSettings:()=>{const members=[...new Set($('#membersInput').value.split('\n').map(s=>s.trim()).filter(Boolean))];const c=$('#rateCurrency').value,rate=Number($('#rateValue').value);if(!members.length||!Number.isFinite(rate)||rate<=0)return toast('請至少保留一位旅伴，並填正確匯率');const used=new Set(state.expenses.flatMap(e=>[e.payer,...(e.split||[])]));if([...used].some(m=>!members.includes(m)))return toast('現有帳目使用了被移除的旅伴，請保留該旅伴');state.members=members;state.rates[c]=c==='TWD'?1:rate;persist();render();toast('已儲存設定')}};
-  handlers.googleSettings=googleSettings;
+  handlers.googleSettings=googleSettings;Object.assign(handlers,{scanMenu,editAvoids,showAvoidStaff,dictSettings,refreshDict:doRefreshDict,openDish,toggleFav,showDishStaff,pickCamera:()=>$('#scanCamera').click(),pickGallery:()=>$('#scanGallery').click(),closeStaff:()=>{$('#staffLayer').hidden=true},toggleFavOnly:()=>{favOnly=!favOnly;renderFood()}});
   const originalCommit=handlers.commitCandidates;
   handlers.commitCandidates=()=>{const before=new Set(state.places.map(p=>p.id));originalCommit();matchImportedPlaces(state.places.filter(p=>!before.has(p.id)))};
   document.addEventListener('submit',e=>{if(e.target?.dataset?.form!=='googleSettings')return;e.preventDefault();e.stopImmediatePropagation();const key=e.target.querySelector('[name="googleKey"]').value.trim();if(key&&!/^AIza[\w-]{30,}$/.test(key)){toast('這不是有效的 Google Maps API 金鑰格式');return}if(key)localStorage.setItem(GOOGLE_KEY_STORAGE,key);else localStorage.removeItem(GOOGLE_KEY_STORAGE);location.reload()},true);
-  document.addEventListener('click',e=>{const day=e.target.closest('[data-day]');if(day){state.day=+day.dataset.day;persist();render();return}const nav=e.target.closest('[data-tab]');if(nav){view(nav.dataset.tab);return}const b=e.target.closest('[data-action]');if(!b)return;const action=b.dataset.action,ident=b.dataset.id;if(handlers[action])return handlers[action]();const p=state.places.find(x=>x.id===ident),ev=state.events.find(x=>x.id===ident);if(action==='scheduleOne')scheduleModal(ident);if(action==='editPlace'&&p)placeModal(p);if(action==='locate'&&p)geocode(p);if(action==='deletePlace'&&p)confirmDelete(`刪除「${p.name}」及其行程安排？`,()=>{state.places=state.places.filter(x=>x.id!==ident);state.events=state.events.filter(x=>x.placeId!==ident)});if(action==='editEvent'&&ev){if(ev.kind==='place')scheduleModal(ev.placeId,ev);else travelModal(ev.kind,ev)}if(action==='deleteEvent'&&ev)confirmDelete('移除這段行程？相關交通或班機花費也會刪除。',()=>{state.events=state.events.filter(x=>x.id!==ident);state.expenses=state.expenses.filter(x=>x.sourceEvent!==ident)});if(action==='deleteExpense')confirmDelete('刪除這筆帳目？',()=>{const expense=state.expenses.find(x=>x.id===ident);state.expenses=state.expenses.filter(x=>x.id!==ident);const event=state.events.find(x=>x.id===expense?.sourceEvent);if(event){event.costTwd=0;event.amount=0}})});
-  document.addEventListener('submit',e=>{const f=e.target.closest('form[data-form]');if(!f)return;e.preventDefault();const v=data(f),kind=f.dataset.form,ident=f.dataset.id;if(kind==='trip'){const days=Number(v.days);if(days<1||days>60)return toast('天數需為 1 到 60');state.title=v.title.trim();state.start=v.start;state.days=days;state.day=Math.min(state.day,days)}if(kind==='place'){const old=state.places.find(x=>x.id===ident),coords=parseMapCoords(v.url);if(old){const changed=old.name!==v.name.trim()||old.address!==v.address.trim();Object.assign(old,{name:v.name.trim(),address:v.address.trim(),note:v.note.trim(),url:v.url.trim()});if(changed){delete old.googlePlaceId;Object.assign(old,{lat:null,lng:null})}if(coords)Object.assign(old,coords)}else state.places.push({id:id(),name:v.name.trim(),address:v.address.trim(),note:v.note.trim(),url:v.url.trim(),...(coords||{lat:null,lng:null})})}if(kind==='schedule'){const ev=state.events.find(x=>x.id===ident);if(ev)Object.assign(ev,{placeId:v.placeId,day:+v.day,time:v.time});else state.events.push({id:id(),kind:'place',placeId:v.placeId,day:+v.day,time:v.time})}if(kind==='travel'){let ev=state.events.find(x=>x.id===ident);const amount=v.amount===''?0:Number(v.amount),rate=Number(state.rates[v.currency]);if(!Number.isFinite(amount)||amount<0)return toast('請輸入正確花費');if(!ev){ev={id:id(),kind:f.dataset.kind};state.events.push(ev)}Object.assign(ev,{day:+v.day,time:v.time,from:v.from.trim(),to:v.to.trim(),arrive:v.arrive,code:f.dataset.kind==='flight'?v.mode.trim():'',mode:f.dataset.kind==='transport'?v.mode.trim():'',duration:+v.duration||0,amount,currency:v.currency,payer:v.payer,note:v.note.trim(),costTwd:Math.round(amount*rate*100)/100});let expense=costFor(ev);if(amount>0){if(!expense){expense={id:id(),sourceEvent:ev.id,split:[...state.members]};state.expenses.push(expense)}Object.assign(expense,{title:f.dataset.kind==='flight'?`機票 ${ev.code||ev.from+'→'+ev.to}`:`${ev.mode||'交通'} ${ev.from}→${ev.to}`,amount,currency:v.currency,twd:ev.costTwd,payer:v.payer,day:ev.day})}else state.expenses=state.expenses.filter(x=>x.sourceEvent!==ev.id)}if(kind==='expense'){const members=[...f.querySelectorAll('[name="split"]:checked')].map(x=>x.value);if(!members.length)return toast('請至少選一位分攤人');const amt=Number(v.amount);if(!Number.isFinite(amt)||amt<=0)return toast('請輸入正確金額');state.expenses.push({id:id(),title:v.title.trim(),amount:amt,currency:v.currency,twd:Math.round(amt*state.rates[v.currency]*100)/100,payer:v.payer,split:members,day:+v.day})}persist();close();render();toast('已儲存')});
-  $('#modalLayer').addEventListener('click',e=>{if(e.target===$('#modalLayer'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});$('#placeFilter').addEventListener('input',renderPlaces);$('#rateCurrency').addEventListener('change',()=>$('#rateValue').value=state.rates[$('#rateCurrency').value]||1);
-  $('#restoreFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const next=JSON.parse(await file.text());if(!valid(next)||+next.days<1||+next.days>60)throw Error();if(!confirm('匯入備份會覆蓋這個瀏覽器目前的旅程，確定繼續？'))return;state={...fresh(),...next};state.day=Math.min(Math.max(1,+state.day||1),state.days);persist();render();toast('備份已還原')}catch{toast('備份檔格式不正確')}finally{e.target.value=''}});
+  document.addEventListener('click',e=>{const day=e.target.closest('[data-day]');if(day){state.day=+day.dataset.day;persist();render();return}const nav=e.target.closest('[data-tab]');if(nav){view(nav.dataset.tab);return}const b=e.target.closest('[data-action]');if(!b)return;const action=b.dataset.action,ident=b.dataset.id;if(handlers[action])return handlers[action](b);const p=state.places.find(x=>x.id===ident),ev=state.events.find(x=>x.id===ident);if(action==='scheduleOne')scheduleModal(ident);if(action==='editPlace'&&p)placeModal(p);if(action==='locate'&&p)geocode(p);if(action==='deletePlace'&&p)confirmDelete(`刪除「${p.name}」及其行程安排？`,()=>{state.places=state.places.filter(x=>x.id!==ident);state.events=state.events.filter(x=>x.placeId!==ident)});if(action==='editEvent'&&ev){if(ev.kind==='place')scheduleModal(ev.placeId,ev);else travelModal(ev.kind,ev)}if(action==='deleteEvent'&&ev)confirmDelete('移除這段行程？相關交通或班機花費也會刪除。',()=>{state.events=state.events.filter(x=>x.id!==ident);state.expenses=state.expenses.filter(x=>x.sourceEvent!==ident)});if(action==='deleteExpense')confirmDelete('刪除這筆帳目？',()=>{const expense=state.expenses.find(x=>x.id===ident);state.expenses=state.expenses.filter(x=>x.id!==ident);const event=state.events.find(x=>x.id===expense?.sourceEvent);if(event){event.costTwd=0;event.amount=0}})});
+  document.addEventListener('submit',e=>{const f=e.target.closest('form[data-form]');if(!f)return;e.preventDefault();const v=data(f),kind=f.dataset.form,ident=f.dataset.id;if(kind==='trip'){const days=Number(v.days);if(days<1||days>60)return toast('天數需為 1 到 60');state.title=v.title.trim();state.start=v.start;state.days=days;state.day=Math.min(state.day,days);state.country=(v.country||'').trim()}if(kind==='place'){const old=state.places.find(x=>x.id===ident),coords=parseMapCoords(v.url);if(old){const changed=old.name!==v.name.trim()||old.address!==v.address.trim();Object.assign(old,{name:v.name.trim(),address:v.address.trim(),note:v.note.trim(),url:v.url.trim()});if(changed){delete old.googlePlaceId;Object.assign(old,{lat:null,lng:null})}if(coords)Object.assign(old,coords)}else state.places.push({id:id(),name:v.name.trim(),address:v.address.trim(),note:v.note.trim(),url:v.url.trim(),...(coords||{lat:null,lng:null})})}if(kind==='schedule'){const link=(v.bookingUrl||'').trim();if(link&&!/^https:\/\//i.test(link))return toast('訂單連結請用 https');const fields={placeId:v.placeId,day:+v.day,time:v.time,category:v.category==='住宿'?'住宿':'景點',bookingUrl:link,orderNo:(v.orderNo||'').trim()};const ev=state.events.find(x=>x.id===ident);if(ev)Object.assign(ev,fields);else state.events.push({id:id(),kind:'place',...fields})}if(kind==='travel'){let ev=state.events.find(x=>x.id===ident);const amount=v.amount===''?0:Number(v.amount),rate=Number(state.rates[v.currency]);if(!Number.isFinite(amount)||amount<0)return toast('請輸入正確花費');if(f.dataset.kind==='flight'){const link=(v.bookingUrl||'').trim();if(link&&!/^https:\/\//i.test(link))return toast('訂單連結請用 https')}if(!ev){ev={id:id(),kind:f.dataset.kind};state.events.push(ev)}const flightKind=f.dataset.kind==='flight';const modeId=flightKind?'':(v.modeId||'taxi');const modeName=modeLabel(modeId);const prev=String(ev.mode||'');const prevId=ev.modeId||modeIdOf({mode:prev});const modeText=flightKind?'':(prev&&prev!==modeName&&prevId===modeId?prev:modeName);Object.assign(ev,{day:+v.day,time:v.time,from:v.from.trim(),to:v.to.trim(),arrive:v.arrive,code:flightKind?(v.mode||'').trim():'',mode:modeText,modeId,duration:+v.duration||0,amount,currency:v.currency,payer:v.payer,note:v.note.trim(),costTwd:Math.round(amount*rate*100)/100});if(flightKind){ev.bookingUrl=(v.bookingUrl||'').trim();ev.orderNo=(v.orderNo||'').trim()}let expense=costFor(ev);if(amount>0){if(!expense){expense={id:id(),sourceEvent:ev.id,split:[...state.members]};state.expenses.push(expense)}Object.assign(expense,{title:f.dataset.kind==='flight'?`機票 ${ev.code||ev.from+'→'+ev.to}`:`${ev.mode||'交通'} ${ev.from}→${ev.to}`,amount,currency:v.currency,twd:ev.costTwd,payer:v.payer,day:ev.day})}else state.expenses=state.expenses.filter(x=>x.sourceEvent!==ev.id)}if(kind==='avoids'){state.avoids=[...f.querySelectorAll('[name="avoid"]:checked')].map(x=>x.value);state.avoidCustom=[...new Set((v.avoidCustom||'').split(/\n|[、,，]/).map(s=>s.trim()).filter(Boolean))]}if(kind==='dict'){const sheets={};f.querySelectorAll('input[name^="sheet-"]').forEach(el=>{const value=el.value.trim();if(value)sheets[el.name.slice(6)]=value});state.dictSheets=sheets;if(e.submitter?.value==='update'){const key=dictKey();persist();close();render();if(!sheets[key]){toast('請先貼上'+key+'的試算表連結');return}refreshDict(key).then(n=>{toast('已更新 '+n+' 道菜');if(tab==='food')renderFood()}).catch(err=>toast(err.message||'字典更新失敗'));return}}if(kind==='expense'){const members=[...f.querySelectorAll('[name="split"]:checked')].map(x=>x.value);if(!members.length)return toast('請至少選一位分攤人');const amt=Number(v.amount);if(!Number.isFinite(amt)||amt<=0)return toast('請輸入正確金額');state.expenses.push({id:id(),title:v.title.trim(),amount:amt,currency:v.currency,twd:Math.round(amt*state.rates[v.currency]*100)/100,payer:v.payer,split:members,day:+v.day})}persist();close();render();toast('已儲存')});
+  $('#modalLayer').addEventListener('click',e=>{if(e.target===$('#modalLayer'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();$('#staffLayer').hidden=true}});document.addEventListener('input',e=>{if(e.target?.name==='bookingUrl'){const hint=document.getElementById('platformHint');if(hint)hint.textContent=platformHint(e.target.value)}if(e.target?.name==='avoid'){const label=e.target.closest('.chip');if(label)label.classList.toggle('on',e.target.checked)}});$('#foodFilter').addEventListener('input',renderFood);$('#scanCamera').addEventListener('change',e=>{const file=e.target.files&&e.target.files[0];e.target.value='';if(file)onScanFile(file)});$('#scanGallery').addEventListener('change',e=>{const file=e.target.files&&e.target.files[0];e.target.value='';if(file)onScanFile(file)});$('#placeFilter').addEventListener('input',renderPlaces);$('#rateCurrency').addEventListener('change',()=>$('#rateValue').value=state.rates[$('#rateCurrency').value]||1);
+  $('#restoreFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const next=JSON.parse(await file.text());if(!valid(next)||+next.days<1||+next.days>60)throw Error();if(!confirm('匯入備份會覆蓋這個瀏覽器目前的旅程，確定繼續？'))return;state=normalizeState({...fresh(),...next});state.day=Math.min(Math.max(1,+state.day||1),state.days);persist();render();toast('備份已還原')}catch{toast('備份檔格式不正確')}finally{e.target.value=''}});
   function csvRows(text){const rows=[];let row=[],val='',quote=false;for(let i=0;i<text.length;i++){const c=text[i];if(quote&&c==='"'&&text[i+1]==='"'){val+='"';i++}else if(c==='"')quote=!quote;else if(!quote&&c===','){row.push(val);val=''}else if(!quote&&(c==='\n'||c==='\r')){if(c==='\r'&&text[i+1]==='\n')i++;row.push(val);if(row.some(x=>x.trim()))rows.push(row);row=[];val=''}else val+=c}row.push(val);if(row.some(x=>x.trim()))rows.push(row);return rows}
   $('#csvFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const rows=csvRows((await file.text()).replace(/^\uFEFF/,''));const head=(rows.shift()||[]).map(x=>x.trim().toLowerCase());const find=(...names)=>head.findIndex(h=>names.some(n=>h===n));const nameCol=find('name','title','名稱','地點','店名'),urlCol=find('url','google maps url','網址','連結'),addressCol=find('address','地址'),latCol=find('latitude','lat','緯度'),lngCol=find('longitude','lng','經度');if(nameCol<0)throw Error('請提供 name／名稱 欄位');let n=0;for(const row of rows){const name=row[nameCol]?.trim();if(!name||state.places.some(p=>p.name===name))continue;const url=row[urlCol]?.trim()||'',lat=Number(row[latCol]),lng=Number(row[lngCol]),coords=latCol>=0&&lngCol>=0&&row[latCol]?.trim()&&row[lngCol]?.trim()&&Number.isFinite(lat)&&Number.isFinite(lng)?{lat,lng}:parseMapCoords(url);state.places.push({id:id(),name,address:row[addressCol]?.trim()||'',url,note:'CSV 匯入',...(coords||{lat:null,lng:null})});n++}persist();render();toast(`已匯入 ${n} 個地點`)}catch(err){toast(err.message||'CSV 讀取失敗')}finally{e.target.value=''}});
-  window.travelBridge={read:()=>structuredClone(state),replace:next=>{if(!valid(next))throw Error('旅程資料不正確');state={...fresh(),...next};state.day=Math.min(Math.max(1,+state.day||1),state.days);localStorage.setItem(KEY,JSON.stringify(state));render()},notice:toast};
+  window.travelBridge={read:()=>structuredClone(state),replace:next=>{if(!valid(next))throw Error('旅程資料不正確');state=normalizeState({...fresh(),...next});state.day=Math.min(Math.max(1,+state.day||1),state.days);localStorage.setItem(KEY,JSON.stringify(state));render()},notice:toast};
+  normalizeState(state);
   render();
   // iOS 捷徑可開啟本站 ?shared=<已編碼的捷徑輸入>，直接進入確認流程。
   const incoming=new URLSearchParams(location.search).get('shared');
